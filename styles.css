@@ -16,8 +16,8 @@
   --mk-max:1180px;             /* Ancho máximo del contenedor */
   --mk-r:18px;                 /* Radio estándar de tarjetas */
   --mk-shadow:0 12px 36px rgba(0,0,0,.12); /* Sombra suave */
+--mk-serif:"Cormorant Garamond", serif;
 
-  --mk-serif:"Premint", serif; 
   --mk-sans:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
