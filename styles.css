@@ -462,3 +462,20 @@ img{max-width:100%;height:auto;display:block}
   position:absolute; inset:0 0 auto 0;
   height:350px; background:#0b0b0b; z-index:-1;
 }
+/* BLINDAJE FINAL: paquetes estables y carrusel escopado */
+.mk-cards { transform: none !important; }
+@media (max-width: 980px){
+  .mk-cards { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 840px){
+  .mk-cards { grid-template-columns: 1fr !important; }
+}
+
+/* Aísla carrusel para no contaminar paquetes */
+.mk-cards .mk-card { flex: initial !important; }
+.mk-carousel__track .mk-card{
+  flex: 0 0 calc((100% - 32px)/3);
+  scroll-snap-align: start;
+}
+@media (max-width:900px){ .mk-carousel__track .mk-card{ flex-basis: calc((100% - 16px)/2); } }
+@media (max-width:560px){ .mk-carousel__track .mk-card{ flex-basis: 100%; } }
