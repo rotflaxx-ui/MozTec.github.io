@@ -1,9 +1,9 @@
-/**** ========================================================/* =========================================================
- *  TEMA / VARIABLES GLOBALES (mk-)
- * ========================================================= */
+/* =========================================================
+   TEMA / VARIABLES GLOBALES (mk-)
+   Paleta, tipografías, sombras y tamaños base
+   ========================================================= */
 :root{
-  --mk-band-h: 260px;          /* altura de la franja negra */
-  --mk-packages-offset: 1px;   /* microbajada de tarjetas */
+  --mk-band-h: 260px;          /* altura de la franja negra superior */
   --mk-bg:#F7F7F5;             /* Fondo de página */
   --mk-panel:#FFFFFF;          /* Paneles / tarjetas */
   --mk-ink:#151515;            /* Texto principal */
@@ -16,14 +16,14 @@
   --mk-max:1180px;             /* Ancho máximo del contenedor */
   --mk-r:18px;                 /* Radio estándar de tarjetas */
   --mk-shadow:0 12px 36px rgba(0,0,0,.12); /* Sombra suave */
---mk-serif:"Cormorant Garamond", serif;
 
-  --mk-sans:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --mk-serif:"Cormorant Garamond", serif;   /* Títulos premium (cargada en <head>) */
+  --mk-sans:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; /* Texto */
 }
 
 /* =========================================================
- *  RESET & UTILIDADES
- * ========================================================= */
+   RESET & UTILIDADES
+   ========================================================= */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;scroll-behavior:smooth}
 img{max-width:100%;height:auto;display:block}
@@ -38,50 +38,49 @@ img{max-width:100%;height:auto;display:block}
 /* Contenedor central */
 .mk-wrap{max-width:var(--mk-max);margin-inline:auto;padding-inline:20px}
 
+/* Solo accesibilidad */
 .visually-hidden{
-  position:absolute!important;width:1px;height:1px;overflow:hidden;
-  clip:rect(1px,1px,1px,1px);white-space:nowrap
+  position:absolute!important; width:1px; height:1px; overflow:hidden;
+  clip:rect(1px,1px,1px,1px); white-space:nowrap
 }
 
 /* =========================================================
- *  NAV (header + menú)
- * ========================================================= */
-.mk-nav{position:sticky;top:0;z-index:50;background:#C5A572;border-bottom:1px solid var(--mk-line)}
-.mk-nav__row{display:flex;align-items:center;justify-content:space-between;height:70px}
+   NAVEGACIÓN (header + menú)
+   ========================================================= */
+.mk-nav{position:sticky; top:0; z-index:50; background:#C5A572; border-bottom:1px solid var(--mk-line)}
+.mk-nav__row{display:flex; align-items:center; justify-content:space-between; height:70px}
 
 .mk-logo{
-  font-size:40px;display:flex;align-items:center;gap:10px;color:#111;
-  text-decoration:none;font-weight:700
+  font-size:40px; display:flex; align-items:center; gap:10px; color:#111;
+  text-decoration:none; font-weight:700
 }
-.mk-logo__mark{width:26px;height:26px;background:#000;border-radius:6px}
-.mk-logo__sub{margin-left:6px;color:#ffffff;font-size:18px;font-weight:600}
+.mk-logo__mark{width:26px; height:26px; background:#000; border-radius:6px}
+.mk-logo__sub{margin-left:6px; color:#ffffff; font-size:18px; font-weight:600}
 
-.mk-menu{display:flex;gap:18px;align-items:center}
-.mk-menu a{color:#111;text-decoration:none;font-weight:700;padding:8px 10px;border-radius:12px}
-.mk-menu a.is-active{background:transparent;font-weight:800}
+.mk-menu{display:flex; gap:18px; align-items:center}
+.mk-menu a{color:#111; text-decoration:none; font-weight:700; padding:8px 10px; border-radius:12px}
+.mk-menu a.is-active{background:transparent; font-weight:800}
 
-.mk-nav__toggle{display:none;background:#111;color:#fff;border:0;border-radius:10px;padding:8px 12px;font-size:18px;cursor:pointer}
+.mk-nav__toggle{display:none; background:#111; color:#fff; border:0; border-radius:10px; padding:8px 12px; font-size:18px; cursor:pointer}
 
 /* Botones genéricos */
 .mk-btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  font-weight:800;text-decoration:none;border-radius:14px;transition:.15s ease
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  font-weight:800; text-decoration:none; border-radius:14px; transition:.15s ease
 }
-.mk-btn--cta{background:#111;color:#fff;padding:10px 18px;box-shadow:var(--mk-shadow)}
+.mk-btn--cta{background:#111; color:#fff; padding:10px 18px; box-shadow:var(--mk-shadow)}
 
 .mk-only-lg{display:inline-flex}  /* CTA escritorio */
 .mk-only-sm{display:none}         /* CTA móvil */
 
 /* =========================================================
- *  HERO (overlay + copy + CTAs)
- * ========================================================= */
-.mk-hero{position:relative;isolation:isolate}
+   HERO (overlay + copy + CTAs)
+   ========================================================= */
+.mk-hero{position:relative; isolation:isolate}
 
 /* Capa con gradiente + imagen */
 .mk-hero__overlay{
-  padding:30%;
-  height:min-content;
-  position:absolute;inset:0;z-index:0;pointer-events:none;
+  position:absolute; inset:0; z-index:0; pointer-events:none;
   background-image:
     linear-gradient(180deg, rgba(0,0,0,.64) 0%, rgba(0,0,0,.56) 38%, rgba(0,0,0,.86) 100%),
     var(--mk-hero-img);
@@ -93,27 +92,27 @@ img{max-width:100%;height:auto;display:block}
 
 /* Contenido del hero */
 .mk-hero__inner{
-  position:relative;z-index:1;color:#fff;display:grid;gap:16px;align-items:end;
-  min-height:680px;padding-block:84px;
+  position:relative; z-index:1; color:#fff; display:grid; gap:16px; align-items:end;
+  min-height:680px; padding-block:84px;
 }
 
 .mk-display{
-  font:700 76px/1.04 var(--mk-serif);
-  letter-spacing:-0.01em;margin:0;max-width:620px;
+  font:700 clamp(36px,6.2vw,76px)/1.04 var(--mk-serif);
+  letter-spacing:-0.01em; margin:0; max-width:620px;
 }
-.mk-display em{color:var(--mk-gold);font-style:normal}
-.mk-lead{color:#e8e8e8;margin:14px 0 18px;max-width:620px}
-.mk-actions{display:flex;gap:12px;flex-wrap:wrap}
+.mk-display em{color:var(--mk-gold); font-style:normal}
+.mk-lead{color:#e8e8e8; margin:14px 0 18px; max-width:620px}
+.mk-actions{display:flex; gap:12px; flex-wrap:wrap}
 
-.mk-btn--gold{background:var(--mk-gold);color:#111;padding:12px 18px}
-.mk-btn--ghost{border:2px solid #fff;color:#fff;padding:10px 16px;background:transparent}
+.mk-btn--gold{background:var(--mk-gold); color:#111; padding:12px 18px}
+.mk-btn--ghost{border:2px solid #fff; color:#fff; padding:10px 16px; background:transparent}
 .mk-btn--ghost:hover{background:rgba(255,255,255,.08)}
-.mk-btn--outline-dark{border:2px solid #111;color:#111;padding:10px 16px;background:#fff}
+.mk-btn--outline-dark{border:2px solid #111; color:#111; padding:10px 16px; background:#fff}
 .mk-btn--outline-dark:hover{background:#f5f5f5}
 
 /* =========================================================
- *  FRANJA NEGRA + PAQUETES
- * ========================================================= */
+   FRANJA NEGRA + PAQUETES
+   ========================================================= */
 .mk-band-bar{
   height:var(--mk-band-h);
   background:#0b0b0b;
@@ -121,67 +120,74 @@ img{max-width:100%;height:auto;display:block}
   z-index:0;
 }
 
-/* Contenedor de paquetes */
+/* Sección de paquetes con “alfombra” negra detrás */
 .mk-packages{ position:relative; padding-bottom:120px; }
-
-/* Alfombra negra detrás de toda la sección de paquetes */
 .mk-packages::before{
-  content:"";
-  position:absolute; left:0; right:0; top:0;
-  height:350px; background:#0b0b0b; z-index:-1;
+  content:""; position:absolute; left:0; right:0; top:0;
+  height:350px; background:#0b0b0b; z-index:-1;   /* detrás de las tarjetas */
 }
 
-/* Grid de tarjetas (paquetes) */
+/* Grid de tarjetas (PAQUETES) — SIEMPRE 2 columnas */
 .mk-packages .mk-wrap{ position:relative; }
 .mk-cards{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(2, minmax(0, 1fr));
   gap:28px;
+  transform:none;                       /* sin saltos verticales */
 }
 
 /* Tarjetas de paquete */
 .mk-card{
-  background:#fff;border:1px solid var(--mk-line);border-radius:18px;
-  padding:20px;box-shadow:0 24px 60px rgba(0,0,0,.22);
+  background:#fff; border:1px solid var(--mk-line); border-radius:18px;
+  padding:20px; box-shadow:0 24px 60px rgba(0,0,0,.22);
   transition:transform .2s ease;
+  min-width:0;                          /* clave para que el contenido fluya */
 }
 .mk-card:hover{transform:translateY(-2px)}
-.mk-card--pop{position:relative;border:2px solid var(--mk-gold)}
-.mk-card__title{font:700 30px/1.1 var(--mk-serif);margin:0 0 6px}
-.mk-card__price{color:var(--mk-gold);font-weight:800;margin:0 0 8px}
-.mk-card__list{margin:10px 0 18px;padding-left:20px;color:#374151}
+.mk-card--pop{position:relative; border:2px solid var(--mk-gold)}
+.mk-card__title{
+  font:700 clamp(20px,4.5vw,30px)/1.1 var(--mk-serif);
+  margin:0 0 6px; overflow-wrap:anywhere; word-break:break-word;
+}
+.mk-card__price{color:var(--mk-gold); font-weight:800; margin:0 0 8px; font-size:clamp(16px,3.8vw,18px)}
+.mk-card__list{margin:10px 0 18px; padding-left:20px; color:#374151; font-size:clamp(13px,3.6vw,15.5px); line-height:1.45}
 .mk-card__list li{margin-bottom:6px}
 .mk-pill{
-  position:absolute;right:12px;top:12px;
-  background:var(--mk-gold);color:#111;font-weight:800;
-  font-size:12px;padding:5px 10px;border-radius:999px
+  position:absolute; right:12px; top:12px;
+  background:var(--mk-gold); color:#111; font-weight:800;
+  font-size:12px; padding:5px 10px; border-radius:999px
 }
 
 /* =========================================================
- *  SECCIONES (títulos, subtítulos, espaciado)
- * ========================================================= */
+   SECCIONES GENERALES
+   ========================================================= */
 .mk-section{
   padding-block:80px;
   border-top:1px solid var(--mk-line);
   background:var(--mk-bg);
 }
-.mk-section__head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.mk-section__title{font:700 clamp(26px,4.6vw,40px)/1.1 var(--mk-serif);margin:0}
-.mk-section__sub{color:var(--mk-muted);margin:0}
+.mk-section__head{display:flex; align-items:end; justify-content:space-between; gap:16px; flex-wrap:wrap}
+.mk-section__title{font:700 clamp(26px,4.6vw,40px)/1.1 var(--mk-serif); margin:0}
+.mk-section__sub{color:var(--mk-muted); margin:0}
 
 /* =========================================================
- *  VIDEO HERO (sección independiente con YouTube)
- * ========================================================= */
+   VIDEO HERO (YouTube de fondo)
+   ========================================================= */
 .mk-vhero{
   position:relative; min-height:68vh; display:grid; place-items:center;
-  isolation:isolate; overflow:hidden; background:#0b0b0b;
+  isolation:isolate; overflow:hidden; background:#0b0b0b; border-radius:20px;
 }
 .mk-vhero__bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+.mk-vhero__bg--yt iframe{
+  position:absolute; top:50%; left:50%;
+  width:120vw; height:67.5vw; min-width:100%; min-height:100%;
+  transform:translate(-50%,-50%); pointer-events:none;
+}
 .mk-vhero__scrim{ position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.62) 100%); }
 .mk-vhero__inner{ position:relative; z-index:2; text-align:center; color:#fff; padding:clamp(28px,6vw,80px) 20px; }
 .mk-vhero__title{
-  font:700 clamp(28px,6.8vw,72px)/1.04 var(--mk-serif,"Cormorant Garamond",serif);
-  letter-spacing:-0.01em;margin:0;text-shadow:none;
+  font:700 clamp(28px,6.8vw,72px)/1.04 var(--mk-serif);
+  letter-spacing:-0.01em; margin:0; text-shadow:none;
 }
 .mk-vhero__actions{ margin-top:16px; display:inline-flex; gap:12px; flex-wrap:wrap; }
 
@@ -191,17 +197,9 @@ img{max-width:100%;height:auto;display:block}
   .mk-vhero{ background:#000 url("media/video-poster.jpg") center/cover no-repeat; }
 }
 
-/* FONDO VIDEO YT (tu variante de abajo, consolidada) */
-.mk-vhero{ border-radius:20px }
-.mk-vhero__bg--yt iframe{
-  position:absolute; top:50%; left:50%;
-  width:120vw; height:67.5vw; min-width:100%; min-height:100%;
-  transform:translate(-50%,-50%); pointer-events:none;
-}
-
 /* =========================================================
- *  EJEMPLOS / MOCKUPS (grid)
- * ========================================================= */
+   EJEMPLOS / MOCKUPS
+   ========================================================= */
 .mk-examples .mk-section__title{
   font-family:var(--mk-serif); font-weight:700; letter-spacing:-0.01em;
   font-size:clamp(32px,5.4vw,56px); line-height:1.08; margin-bottom:6px;
@@ -228,8 +226,8 @@ img{max-width:100%;height:auto;display:block}
 }
 
 /* =========================================================
- *  BOTTOM-SHEET (opcional)
- * ========================================================= */
+   BOTTOM-SHEET
+   ========================================================= */
 .mk-no-scroll{ overflow:hidden }
 .mk-sheet__backdrop{
   position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.45);
@@ -258,8 +256,8 @@ img{max-width:100%;height:auto;display:block}
 @media (prefers-reduced-motion:reduce){ .mk-sheet,.mk-sheet__backdrop{ transition:none!important } }
 
 /* =========================================================
- *  CARRUSEL (frosted arrows + h-scroll)
- * ========================================================= */
+   CARRUSEL (frosted arrows + h-scroll)
+   ========================================================= */
 .mk-carousel{
   position:relative; overflow:visible;
   --gutter:24px; --arrow-out:32px; --arrow-size:46px; --arrow-top:56%;
@@ -315,10 +313,10 @@ img{max-width:100%;height:auto;display:block}
 }
 
 /* =========================================================
- *  CITAS (Calendly)
- * ========================================================= */
+   CITAS (Calendly)
+   ========================================================= */
 #citas.mk-section{
-  padding-top:36px; padding-bottom:28px;   /* compacta la sección como pediste */
+  padding-top:36px; padding-bottom:28px;   /* compacta */
   --cly-beige:#d9c7aa; --cly-green:#0f644a; --cly-ring:#E7E7E7;
   position:relative; overflow:clip; margin-bottom:0;
 }
@@ -335,10 +333,10 @@ img{max-width:100%;height:auto;display:block}
 
 #citas .mk-section__head{ margin-bottom:16px }
 #citas .mk-section__title{
-  font:700 clamp(32px,6vw,56px)/1.05 var(--mk-serif,"Cormorant Garamond",serif);
+  font:700 clamp(32px,6vw,56px)/1.05 var(--mk-serif);
   letter-spacing:-.015em; margin:0;
 }
-#citas .mk-section__sub{ font-size:18px; color:var(--mk-muted,#6B7280); margin:6px 0 0 }
+#citas .mk-section__sub{ font-size:18px; color:var(--mk-muted); margin:6px 0 0 }
 
 .mk-citas{ display:grid; grid-template-columns:minmax(300px,520px) 1fr; gap:28px; align-items:start }
 .mk-citas__left,.mk-citas__right{
@@ -350,14 +348,14 @@ img{max-width:100%;height:auto;display:block}
   font-weight:800; padding:14px 18px; letter-spacing:.2px;
 }
 
-/* Altura del embed (scopeda para no afectar otros iframes) */
+/* Altura del embed */
 #citas .calendly-inline-widget{ width:100% !important; height:560px !important }
 #citas .calendly-inline-widget iframe{
   width:100% !important; height:100% !important; border:0 !important; border-radius:0 0 22px 22px;
 }
 
 .mk-citas__right{ padding:20px }
-.mk-pack__title{ font:700 26px/1.1 var(--mk-serif,"Cormorant Garamond",serif); margin:0 0 10px }
+.mk-pack__title{ font:700 26px/1.1 var(--mk-serif); margin:0 0 10px }
 .mk-pack__list{ list-style:none; margin:8px 0 16px; padding-left:0; color:#374151 }
 .mk-pack__list li{ position:relative; padding-left:28px; margin:10px 0 }
 .mk-pack__list li::before{
@@ -373,38 +371,39 @@ img{max-width:100%;height:auto;display:block}
 }
 
 /* =========================================================
- *  CONTACTO
- * ========================================================= */
-.mk-contact{display:grid;gap:26px;grid-template-columns:.9fr 1.1fr;align-items:start}
-.mk-form{display:grid;gap:10px}
+   CONTACTO
+   ========================================================= */
+.mk-contact{display:grid; gap:26px; grid-template-columns:.9fr 1.1fr; align-items:start}
+.mk-form{display:grid; gap:10px}
 .mk-form input,.mk-form textarea{
-  width:100%;background:#fff;border:1.5px solid var(--mk-line);
-  border-radius:12px;padding:12px 14px;font:inherit
+  width:100%; background:#fff; border:1.5px solid var(--mk-line);
+  border-radius:12px; padding:12px 14px; font:inherit
 }
-.mk-form textarea{min-height:140px;resize:vertical}
+.mk-form textarea{min-height:140px; resize:vertical}
 .mk-ok{color:#16a34a}
 .mk-err{color:#dc2626}
 
 /* =========================================================
- *  FOOTER
- * ========================================================= */
-.mk-footer{padding:30px 0;background:#111;color:#fff}
-.mk-foot{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.mk-foot a{color:#fff;text-decoration:none;opacity:.9}
-.mk-foot__links{display:flex;gap:16px;list-style:none;margin:0;padding:0}
+   FOOTER
+   ========================================================= */
+.mk-footer{padding:30px 0; background:#111; color:#fff}
+.mk-foot{display:flex; align-items:center; justify-content:space-between; gap:16px}
+.mk-foot a{color:#fff; text-decoration:none; opacity:.9}
+.mk-foot__links{display:flex; gap:16px; list-style:none; margin:0; padding:0}
 
 /* =========================================================
- *  BOTÓN FLOTANTE WHATSAPP
- * ========================================================= */
+   BOTÓN FLOTANTE WHATSAPP
+   ========================================================= */
 #mk-wa-float{
-  position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0));
-  width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:0;text-decoration:none;
-  background:#25D366;color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.25);z-index:60
+  position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom,0));
+  width:56px; height:56px; border-radius:50%; display:grid; place-items:center; font-size:0; text-decoration:none;
+  background:#25D366; color:#fff; box-shadow:0 10px 24px rgba(0,0,0,.25); z-index:60
 }
 
 /* =========================================================
- *  RESPONSIVE GENERAL (≤ 980px)
- * ========================================================= */
+   RESPONSIVE: NAV / LISTAS / HERO
+   (NO tocamos paquetes: 2 columnas SIEMPRE)
+   ========================================================= */
 @media (max-width:980px){
   .mk-only-lg{display:none}
   .mk-only-sm{display:inline-flex}
@@ -412,186 +411,34 @@ img{max-width:100%;height:auto;display:block}
   .mk-nav__row{position:relative}
   .mk-nav__toggle{display:inline-flex}
   .mk-menu{
-    position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--mk-line);
-    display:none;flex-direction:column;gap:10px;padding:12px 16px;z-index:10
+    position:absolute; top:100%; left:0; right:0; background:#fff; border-bottom:1px solid var(--mk-line);
+    display:none; flex-direction:column; gap:10px; padding:12px 16px; z-index:10
   }
   .mk-menu.open{display:flex}
 
-  /* Pricing a una columna (como lo tenías) */
-  .mk-cards{grid-template-columns:1fr;transform:translateY(-25%)}
-
-  /* Rejillas en una columna */
+  /* Rejillas varias en una columna (menos paquetes) */
   .mk-mockups,.mk-citas,.mk-contact{grid-template-columns:1fr}
 
-  /* Hero compacto */
+  /* Hero más compacto en pantallas pequeñas */
   .mk-hero__overlay,.mk-hero__inner{min-height:64vh}
   .mk-display{font-size:clamp(30px,9vw,46px)}
 }
 
 /* =========================================================
- *  ACCESIBILIDAD (reduce motion)
- * ========================================================= */
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-}
-/* --- Lock desktop look hasta 840px y elimina el brinco en móvil --- */
-
-/* 1) Mantén 2 columnas hasta 840px (en vez de 980) */
-@media (max-width: 980px){
-  .mk-cards{
-    grid-template-columns: repeat(2, 1fr);
-    transform: none;           /* sin salto */
-  }
-}
-
-/* 2) Cuando realmente sea móvil estrecho (<840px), ahí sí 1 columna */
-@media (max-width: 840px){
-  .mk-cards{
-    grid-template-columns: 1fr;
-    transform: none;           /* sin salto */
-  }
-}
-
-/* 3) Si en algún CSS quedó el translateY para móvil, neutralízalo siempre */
-.mk-cards { transform: none !important; }
-
-/* 4) Para que la franja negra y las tarjetas sigan viéndose igual */
-.mk-packages{ position:relative; }
-.mk-packages::before{
-  content:"";
-  position:absolute; inset:0 0 auto 0;
-  height:350px; background:#0b0b0b; z-index:-1;
-}
-/* BLINDAJE FINAL: paquetes estables y carrusel escopado */
-.mk-cards { transform: none !important; }
-@media (max-width: 980px){
-  .mk-cards { grid-template-columns: repeat(2, 1fr) !important; }
-}
-@media (max-width: 840px){
-  .mk-cards { grid-template-columns: 1fr !important; }
-}
-
-/* Aísla carrusel para no contaminar paquetes */
-.mk-cards .mk-card { flex: initial !important; }
-.mk-carousel__track .mk-card{
-  flex: 0 0 calc((100% - 32px)/3);
-  scroll-snap-align: start;
-}
-@media (max-width:900px){ .mk-carousel__track .mk-card{ flex-basis: calc((100% - 16px)/2); } }
-@media (max-width:560px){ .mk-carousel__track .mk-card{ flex-basis: 100%; } }
-/* =========================================================
-   HOTFIX FINAL — paquetes estables como en VSCode
+   ACCESIBILIDAD (reduce motion)
    ========================================================= */
-
-/* 0) Arregla posibles comentarios rotos al principio de tu CSS:
-   Asegúrate que los comentarios empiecen con  "/*" y no con  "/****".
-   (No cambia estilos, pero evita que el parser ignore bloques)
-*/
-
-/* 1) APLASTA cualquier translateY heredado en .mk-cards (sí o sí) */
-.mk-cards { transform: none !important; }
-
-/* 2) Fuerza 2 columnas en paquetes hasta anchos muy chicos,
-      y sólo baja a 1 columna en pantallas realmente estrechas */
-.mk-packages .mk-cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 28px;
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
 }
 
-/* 3) Cuando de verdad sea mini (ej. teléfonos muy angostos) → 1 columna */
-@media (max-width: 740px){
-  .mk-packages .mk-cards {
-    grid-template-columns: 1fr !important;
-  }
+/* =========================================================
+   AJUSTES MÓVIL EXTRAS PARA PAQUETES (sin romper 2 columnas)
+   ========================================================= */
+@media (max-width:520px){
+  .mk-cards{ gap:18px }
+  .mk-card{ padding:16px }
+  .mk-card__title{ font-size:clamp(18px,5.2vw,22px) }
+  .mk-card__price{ font-size:clamp(14px,4.2vw,16px) }
+  .mk-card__list{ font-size:clamp(12.5px,3.8vw,14px) }
+  .mk-btn{ padding:10px 12px; font-size:clamp(12.5px,3.6vw,14px) }
 }
-
-/* 4) Aísla el carrusel para que SUS .mk-card no toquen los paquetes */
-.mk-cards .mk-card { flex: initial !important; }  /* defensa */
-.mk-carousel__track .mk-card{
-  flex: 0 0 calc((100% - 32px)/3) !important;
-  scroll-snap-align: start;
-  background: #fff;
-  border: 1px solid var(--mk-line, #e7e7e7);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.06);
-  padding: 12px;
-}
-@media (max-width: 900px){
-  .mk-carousel__track .mk-card{ flex-basis: calc((100% - 16px)/2) !important; }
-}
-@media (max-width: 560px){
-  .mk-carousel__track .mk-card{ flex-basis: 100% !important; }
-}
-
-/* 5) Mantén la “alfombra negra” detrás de paquetes sin moverlos */
-.mk-packages{ position: relative; padding-bottom: 120px; }
-.mk-packages::before{
-  content: "";
-  position: absolute; left: 0; right: 0; top: 0;
-  height: 350px; background: #0b0b0b; z-index: -1;
-}
-/* ================================================
-   LOCK: Paquetes en 2 columnas (también en móvil)
-   Texto fluido, sin columnas gigantes
-   ================================================ */
-
-/* 1) Fuerza 2 columnas reales y mata cualquier translate */
-.mk-packages .mk-cards{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 18px !important;                 /* un poco menos de gap en móvil */
-  transform: none !important;
-}
-
-/* 2) Evita que las tarjetas impongan un ancho mínimo */
-.mk-packages .mk-card{
-  min-width: 0 !important;              /* clave para que el contenido se ajuste */
-  padding: 16px !important;             /* padding más compacto en pantallas chicas */
-}
-
-/* 3) Texto que se adapta dentro de la tarjeta */
-.mk-packages .mk-card__title{
-  font-size: clamp(18px, 4.5vw, 24px) !important;
-  line-height: 1.12 !important;
-  overflow-wrap: anywhere !important;   /* permite cortes amables */
-  word-break: break-word !important;    /* por si hay palabras largas */
-  margin-bottom: 6px !important;
-}
-.mk-packages .mk-card__price{
-  font-size: clamp(16px, 4vw, 18px) !important;
-  margin-bottom: 8px !important;
-}
-.mk-packages .mk-card__list{
-  font-size: clamp(13px, 3.6vw, 15px) !important;
-  line-height: 1.45 !important;
-  padding-left: 18px !important;
-  margin: 8px 0 14px !important;
-}
-.mk-packages .mk-card__list li{ margin-bottom: 6px !important; }
-
-/* 4) Badge y botón afinados para caber en 2 columnas estrechas */
-.mk-packages .mk-pill{
-  right: 10px !important; top: 10px !important;
-  font-size: 11px !important; padding: 4px 8px !important;
-}
-.mk-packages .mk-btn{
-  padding: 10px 12px !important;
-  font-size: clamp(13px, 3.6vw, 14px) !important;
-}
-
-/* 5) En pantallas MUY angostas, afina el respiradero sin romper 2 columnas */
-@media (max-width: 420px){
-  .mk-packages .mk-cards{ gap: 12px !important; }
-  .mk-packages .mk-card{ padding: 12px !important; }
-}
-
-/* 6) Asegura que ninguna regla vieja te cambie a 1 columna */
-@media (max-width: 980px){
-  .mk-cards{ grid-template-columns: repeat(2, minmax(0, 1fr)) !important; transform:none !important; }
-}
-/* Si en tu CSS existe otro @media más agresivo (840/740/etc.), esto lo aplasta igual */
-
-/* 7) El carrusel NO toca paquetes (scoping defensivo) */
-.mk-cards .mk-card{ flex: initial !important; } /* por si algún flex se cuela */
-.mk-carousel__track .mk-card{ /* carrusel mantiene su propio layout */ }
