@@ -29,7 +29,7 @@ document.addEventListener("click",(e)=>{
 // Lista de imágenes REMOTAS (URLs completas, siempre https)
 const imgs = [
   "https://seoescala.com/wp-content/uploads/2023/10/diseno-y-desarrollo-de-paginas-web-1.webp",
-  "https://tse2.mm.bing.net/th/id/OIP.iGYbNc3bNEjsa7I8sQihNQHaKe?r=0&cb=thfc1&pid=ImgDet&w=474&h=670&rs=1&o=7&rm=3",
+  "https://martaemerson.com/wp-content/uploads/2022/09/como-crear-una-pagina-web-de-ventas.jpg",
 ];let idx = 0;
 const ROTATE_MS = 3000;   // 3 segundos
 let timer = null;
