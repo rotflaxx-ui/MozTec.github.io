@@ -134,10 +134,12 @@ img{max-width:100%;height:auto;display:block}
 
 
 /* Corrige espacio entre franja negra y la siguiente sección en desktop */
-@media (min-width: 981px){
-  .mk-packages{
-    padding-bottom: clamp(140px, 10vw, 200px); /* más aire blanco */
-  }
+/* ===== Desktop FULL ===== */
+@media (min-width: 1440px){
+  /* Reduce el colchón blanco bajo .mk-packages SOLO en pantallas anchas */
+  .mk-packages{ padding-bottom: 120px; }   /* antes venía de clamp(...). Prueba 100–140px */
+}
+
 
 /* Alfombra negra que cubre *toda* la sección de paquetes */
 .mk-packages::before{
@@ -693,5 +695,4 @@ border-radius: 20PX;}
 @media (prefers-reduced-data: reduce){
   .mk-vhero__bg--yt{ display:none; }           /* oculta el video si el usuario pide ahorrar datos */
   .mk-vhero{ background:#111 url("https://youtu.be/8WzW93KJ8FU?t=4250") center/cover no-repeat; }
-}
 }
