@@ -1,29 +1,28 @@
-/**** =========================================================
+/**** ========================================================/* =========================================================
  *  TEMA / VARIABLES GLOBALES (mk-)
- *  Paleta, tipografías, sombras y tamaños base
  * ========================================================= */
 :root{
   --mk-band-h: 260px;          /* altura de la franja negra */
-  --mk-packages-offset: 1px;   /* cuánto “bajan” las tarjetas dentro de la franja */
-  --mk-bg:#F7F7F5;          /* Fondo de página */
-  --mk-panel:#FFFFFF;       /* Paneles / tarjetas */
-  --mk-ink:#151515;         /* Color principal de texto */
-  --mk-muted:#6B7280;       /* Texto secundario */
+  --mk-packages-offset: 1px;   /* microbajada de tarjetas */
+  --mk-bg:#F7F7F5;             /* Fondo de página */
+  --mk-panel:#FFFFFF;          /* Paneles / tarjetas */
+  --mk-ink:#151515;            /* Texto principal */
+  --mk-muted:#6B7280;          /* Texto secundario */
 
-  --mk-line:#E7E7E7;        /* Bordes suaves */
-  --mk-black:#0E0E0E;       /* Negro de marca */
-  --mk-gold:#C5A572;        /* Dorado de acento (estatus) */
+  --mk-line:#E7E7E7;           /* Bordes suaves */
+  --mk-black:#0E0E0E;          /* Negro de marca */
+  --mk-gold:#C5A572;           /* Dorado de acento (estatus) */
 
-  --mk-max:1180px;          /* Ancho máximo del contenedor */
-  --mk-r:18px;              /* Radio estándar de tarjetas */
-  --mk-shadow:0 12px 36px rgba(0,0,0,.12); /* Sombra suave por defecto */
+  --mk-max:1180px;             /* Ancho máximo del contenedor */
+  --mk-r:18px;                 /* Radio estándar de tarjetas */
+  --mk-shadow:0 12px 36px rgba(0,0,0,.12); /* Sombra suave */
 
-  --mk-serif:"Premint", serif;  /* Títulos premium */
-  --mk-sans:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; /* Texto */
+  --mk-serif:"Premint", serif; 
+  --mk-sans:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-/**** =========================================================
- *  RESETEOS Y UTILIDADES BÁSICAS
+/* =========================================================
+ *  RESET & UTILIDADES
  * ========================================================= */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;scroll-behavior:smooth}
@@ -36,159 +35,118 @@ img{max-width:100%;height:auto;display:block}
   -webkit-font-smoothing:antialiased;
 }
 
-/* Contenedor central con padding lateral */
+/* Contenedor central */
 .mk-wrap{max-width:var(--mk-max);margin-inline:auto;padding-inline:20px}
 
-/* Solo para accesibilidad: enlaces “saltar a contenido”, labels ocultos, etc. */
 .visually-hidden{
   position:absolute!important;width:1px;height:1px;overflow:hidden;
   clip:rect(1px,1px,1px,1px);white-space:nowrap
 }
 
-/**** =========================================================
- *  NAVEGACIÓN (header + menú)
+/* =========================================================
+ *  NAV (header + menú)
  * ========================================================= */
 .mk-nav{position:sticky;top:0;z-index:50;background:#C5A572;border-bottom:1px solid var(--mk-line)}
 .mk-nav__row{display:flex;align-items:center;justify-content:space-between;height:70px}
 
-/* Logo y lockup */
 .mk-logo{
-  font-size: 40px;
-  display:flex;align-items:center;gap:10px;color:#111;text-decoration:none;font-weight:700}
-.mk-logo__mark{
-  width:26px;height:26px;background:#000;border-radius:6px} /* ícono cuadrado */
-.mk-logo__sub{margin-left:6px;color:#ffffff;font-size:18px;font-weight:600} /* tagline */
+  font-size:40px;display:flex;align-items:center;gap:10px;color:#111;
+  text-decoration:none;font-weight:700
+}
+.mk-logo__mark{width:26px;height:26px;background:#000;border-radius:6px}
+.mk-logo__sub{margin-left:6px;color:#ffffff;font-size:18px;font-weight:600}
 
-/* Menú principal */
 .mk-menu{display:flex;gap:18px;align-items:center}
 .mk-menu a{color:#111;text-decoration:none;font-weight:700;padding:8px 10px;border-radius:12px}
-/* Estado activo sin “chip” gris, como en el mockup */
 .mk-menu a.is-active{background:transparent;font-weight:800}
 
-/* Botón hamburguesa (visible en móvil) */
 .mk-nav__toggle{display:none;background:#111;color:#fff;border:0;border-radius:10px;padding:8px 12px;font-size:18px;cursor:pointer}
 
-/* Botones genéricos (CTA, outline, etc.) */
+/* Botones genéricos */
 .mk-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  font-weight:800;text-decoration:none;border-radius:14px; /* radio consistente */
-  transition:.15s ease
+  font-weight:800;text-decoration:none;border-radius:14px;transition:.15s ease
 }
 .mk-btn--cta{background:#111;color:#fff;padding:10px 18px;box-shadow:var(--mk-shadow)}
 
-.mk-only-lg{display:inline-flex}  /* CTA en escritorio */
-.mk-only-sm{display:none}         /* CTA en móvil (aparece bajo 980px) */
+.mk-only-lg{display:inline-flex}  /* CTA escritorio */
+.mk-only-sm{display:none}         /* CTA móvil */
 
-/**** =========================================================
- *  HERO (foto a la derecha + overlay + copy + CTAs)
+/* =========================================================
+ *  HERO (overlay + copy + CTAs)
  * ========================================================= */
 .mk-hero{position:relative;isolation:isolate}
 
-/* Capa con gradiente + imagen; fija altura para “mockup lock” */
+/* Capa con gradiente + imagen */
 .mk-hero__overlay{
-  padding: 30%;
-  height: min-content;
+  padding:30%;
+  height:min-content;
   position:absolute;inset:0;z-index:0;pointer-events:none;
   background-image:
-    linear-gradient(180deg, rgba(0,0,0,.64) 0%, rgba(0,0,0,.56) 38%, rgba(0,0,0,.86) 100%), /* punch */
-    var(--mk-hero-img);                 /* definida inline en HTML */
-  background-position:center, right center; /* persona hacia la derecha */
+    linear-gradient(180deg, rgba(0,0,0,.64) 0%, rgba(0,0,0,.56) 38%, rgba(0,0,0,.86) 100%),
+    var(--mk-hero-img);
+  background-position:center, right center;
   background-size:cover, cover;
   background-repeat:no-repeat, no-repeat;
-  min-height:680px;                     /* altura desktop para clavar composición */
+  min-height:680px;
 }
 
-/* Contenido del hero (texto + botones) */
+/* Contenido del hero */
 .mk-hero__inner{
-  position:relative;z-index:1;color:#fff;
-  display:grid;gap:16px;align-items:end;
+  position:relative;z-index:1;color:#fff;display:grid;gap:16px;align-items:end;
   min-height:680px;padding-block:84px;
 }
 
-/* Título grande premium. Max-width fuerza salto (“profesional” en línea propia) */
 .mk-display{
   font:700 76px/1.04 var(--mk-serif);
-  letter-spacing:-0.01em;
-  margin:0;max-width:620px;
+  letter-spacing:-0.01em;margin:0;max-width:620px;
 }
-.mk-display em{color:var(--mk-gold);font-style:normal} /* resalta palabra clave */
+.mk-display em{color:var(--mk-gold);font-style:normal}
 .mk-lead{color:#e8e8e8;margin:14px 0 18px;max-width:620px}
 .mk-actions{display:flex;gap:12px;flex-wrap:wrap}
 
-/* Variantes de botones del hero */
 .mk-btn--gold{background:var(--mk-gold);color:#111;padding:12px 18px}
 .mk-btn--ghost{border:2px solid #fff;color:#fff;padding:10px 16px;background:transparent}
 .mk-btn--ghost:hover{background:rgba(255,255,255,.08)}
 .mk-btn--outline-dark{border:2px solid #111;color:#111;padding:10px 16px;background:#fff}
 .mk-btn--outline-dark:hover{background:#f5f5f5}
-/* FRANJA NEGRA INDEPENDIENTE (debe pintarse siempre) */
+
+/* =========================================================
+ *  FRANJA NEGRA + PAQUETES
+ * ========================================================= */
 .mk-band-bar{
-  
-  height: var(--mk-band-h);
-  background: #0b0b0b;
-  position: relative;
-  z-index: 0;
-}/* Sección de paquetes */
-
-/* Espacio blanco seguro entre paquetes y el video-hero */
-
-
-/* Corrige espacio entre franja negra y la siguiente sección en desktop */
-/* ===== Desktop FULL ===== */
-@media (min-width: 1440px){
-  /* Reduce el colchón blanco bajo .mk-packages SOLO en pantallas anchas */
-  .mk-packages{ padding-bottom: 120px; }   /* antes venía de clamp(...). Prueba 100–140px */
+  height:var(--mk-band-h);
+  background:#0b0b0b;
+  position:relative;
+  z-index:0;
 }
 
+/* Contenedor de paquetes */
+.mk-packages{ position:relative; padding-bottom:120px; }
 
-/* Alfombra negra que cubre *toda* la sección de paquetes */
+/* Alfombra negra detrás de toda la sección de paquetes */
 .mk-packages::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  /* empieza donde inició la franja negra superior */
-  
-  /* y se extiende hasta el final de la sección */
-  height:350px;
-  background: #0b0b0b;
-  z-index: -1; /* detrás de las tarjetas, delante del hero */
+  content:"";
+  position:absolute; left:0; right:0; top:0;
+  height:350px; background:#0b0b0b; z-index:-1;
 }
 
-
-/**** /* Altura de la franja negra (fácil de ajustar en un solo sitio) */
-:root{
-  --mk-band-h: 260px;
-}
-
-/* FRANJA NEGRA INDEPENDIENTE */
-.mk-band-bar{
-  height: var(--mk-band-h);
-  background: #0b0b0b;
-}
-
-/* CONTENEDOR DE PAQUETES (no toca la franja) */
-/* Lo “subimos” exactamente hasta quedar 1px por debajo del inicio de la franja */
-
-
-/* Tarjetas: grid normal (ya no absolute/translate), centradas con el mismo ancho que el wrap */
-
-
-.mk-packages .mk-wrap{ position: relative;}
+/* Grid de tarjetas (paquetes) */
+.mk-packages .mk-wrap{ position:relative; }
 .mk-cards{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:28px;
 }
 
-/* ——— Estilos de tarjeta (los tuyos) ——— */
+/* Tarjetas de paquete */
 .mk-card{
   background:#fff;border:1px solid var(--mk-line);border-radius:18px;
-  padding:20px;box-shadow:0 24px 60px rgba(0,0,0,.22)
+  padding:20px;box-shadow:0 24px 60px rgba(0,0,0,.22);
+  transition:transform .2s ease;
 }
-.mk-card:hover{transform:translateY(-2px);transition:transform .2s ease}
-.mk-card--pop{position:relative;border:2px solid var(--mk-gold)
-}
+.mk-card:hover{transform:translateY(-2px)}
+.mk-card--pop{position:relative;border:2px solid var(--mk-gold)}
 .mk-card__title{font:700 30px/1.1 var(--mk-serif);margin:0 0 6px}
 .mk-card__price{color:var(--mk-gold);font-weight:800;margin:0 0 8px}
 .mk-card__list{margin:10px 0 18px;padding-left:20px;color:#374151}
@@ -199,177 +157,85 @@ img{max-width:100%;height:auto;display:block}
   font-size:12px;padding:5px 10px;border-radius:999px
 }
 
-/* Responsive */
-@media (max-width:980px){
-  :root{ --mk-band-h: 220px; }          /* franja un poco más baja en móvil (opcional) */
-  .mk-cards{ grid-template-columns: 1fr; gap: 22px; }
-  .mk-packages{ padding-bottom: 120px; }
-}
-
-/**** =========================================================
- *  SECCIONES GENERALES (títulos, subtítulos, espaciado)
+/* =========================================================
+ *  SECCIONES (títulos, subtítulos, espaciado)
  * ========================================================= */
 .mk-section{
-  
-  padding-block:80px;border-top:1px solid var(--mk-line);background:var(--mk-bg)}
+  padding-block:80px;
+  border-top:1px solid var(--mk-line);
+  background:var(--mk-bg);
+}
 .mk-section__head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .mk-section__title{font:700 clamp(26px,4.6vw,40px)/1.1 var(--mk-serif);margin:0}
-.mk-section__sub{color:var(--mk-muted);margin:0
-}
-/* ===== VIDEO HERO (sección independiente) ===== */
-.mk-vhero{
-  position: relative;
-  min-height: 68vh;              /* altura de la sección */
-  display: grid;
-  place-items: center;
-  isolation: isolate;            /* asegura capas por encima del video */
-  overflow: hidden;
-  background: #0b0b0b;           /* por si el video tarda */
-}
+.mk-section__sub{color:var(--mk-muted);margin:0}
 
-.mk-vhero__bg{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;             /* llena sin deformar */
-  z-index: 0;
-}
-
-.mk-vhero__scrim{
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  /* capa oscura suave para que el texto sea sólido/legible */
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.62) 100%);
-}
-
-.mk-vhero__inner{
-  position: relative;
-  z-index: 2;                    /* por encima del video y scrim */
-  text-align: center;
-  color: #fff;
-  padding: clamp(28px, 6vw, 80px) 20px;
-}
-
-.mk-vhero__title{
-  font: 700 clamp(28px, 6.8vw, 72px)/1.04 var(--mk-serif, "Cormorant Garamond", serif);
-  letter-spacing: -0.01em;
-  margin: 0;
-  /* “letras sólidas”: nada de sombra ni stroke, solo blanco limpiecito */
-  text-shadow: none;
-}
-
-.mk-vhero__actions{
-  margin-top: 16px;
-  display: inline-flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* Más compacto en móvil */
-@media (max-width: 640px){
-  .mk-vhero{ min-height: 56vh; }
-}
-
-/* Accesibilidad: usuarios con “reduce motion” ven el póster estático */
-@media (prefers-reduced-motion: reduce){
-  .mk-vhero__bg{ display: none !important; }
-  .mk-vhero{ background: #000 url("media/video-poster.jpg") center/cover no-repeat; }
-}
-
-/**** =========================================================
- *  /**** =========================================================
- * /* =========================================================
- /* =========================================================
 /* =========================================================
- * (A) EJEMPLOS / MOCKUPS — cards clicables + accesibles
+ *  VIDEO HERO (sección independiente con YouTube)
+ * ========================================================= */
+.mk-vhero{
+  position:relative; min-height:68vh; display:grid; place-items:center;
+  isolation:isolate; overflow:hidden; background:#0b0b0b;
+}
+.mk-vhero__bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+.mk-vhero__scrim{ position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.62) 100%); }
+.mk-vhero__inner{ position:relative; z-index:2; text-align:center; color:#fff; padding:clamp(28px,6vw,80px) 20px; }
+.mk-vhero__title{
+  font:700 clamp(28px,6.8vw,72px)/1.04 var(--mk-serif,"Cormorant Garamond",serif);
+  letter-spacing:-0.01em;margin:0;text-shadow:none;
+}
+.mk-vhero__actions{ margin-top:16px; display:inline-flex; gap:12px; flex-wrap:wrap; }
+
+@media (max-width:640px){ .mk-vhero{ min-height:56vh } }
+@media (prefers-reduced-motion:reduce){
+  .mk-vhero__bg{ display:none!important }
+  .mk-vhero{ background:#000 url("media/video-poster.jpg") center/cover no-repeat; }
+}
+
+/* FONDO VIDEO YT (tu variante de abajo, consolidada) */
+.mk-vhero{ border-radius:20px }
+.mk-vhero__bg--yt iframe{
+  position:absolute; top:50%; left:50%;
+  width:120vw; height:67.5vw; min-width:100%; min-height:100%;
+  transform:translate(-50%,-50%); pointer-events:none;
+}
+
+/* =========================================================
+ *  EJEMPLOS / MOCKUPS (grid)
  * ========================================================= */
 .mk-examples .mk-section__title{
-  font-family: var(--mk-serif);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  font-size: clamp(32px, 5.4vw, 56px);
-  line-height: 1.08;
-  margin-bottom: 6px;
+  font-family:var(--mk-serif); font-weight:700; letter-spacing:-0.01em;
+  font-size:clamp(32px,5.4vw,56px); line-height:1.08; margin-bottom:6px;
 }
-.mk-examples .mk-section__sub{
-  color: var(--mk-muted);
-  font-size: 15.5px;
-  margin-top: 4px;
-}
+.mk-examples .mk-section__sub{ color:var(--mk-muted); font-size:15.5px; margin-top:4px; }
 
 .mk-mockups{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 24px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:24px;
 }
-
 .mk-mock{
-  display: flex;
-  flex-direction: column;
-  background: var(--mk-panel);
-  border: 1px solid var(--mk-line);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 18px 44px rgba(0,0,0,.10);
-  transition: transform .18s ease, box-shadow .18s ease;
-  cursor: pointer;
-}
-.mk-mock:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 26px 64px rgba(0,0,0,.14);
-}
-.mk-mock:focus-visible{
-  outline: 3px solid var(--mk-gold);
-  outline-offset: 3px;
-}
-
-.mk-mock > img{
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-.mk-mock figcaption{
-  padding: 12px 16px;
-  font-weight: 700;
-  color: #1f2937;
-  background: #fff;
-  border-top: 1px solid var(--mk-line);
-}
-
-@media (max-width: 980px){
-  .mk-mockups{ grid-template-columns: repeat(2, 1fr); gap: 20px; }
-}
-@media (max-width: 640px){
-  .mk-mockups{ grid-template-columns: 1fr; gap: 16px; }
-  .mk-examples .mk-section__title{ font-size: clamp(28px, 8vw, 38px); }
-}
-
-/* === Ejemplos (cards) — ajustes finos === */
-.mk-mockups{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:24px; }
-.mk-mock{ display:flex; flex-direction:column; background:#fff; border:1px solid var(--mk-line);
+  display:flex; flex-direction:column; background:var(--mk-panel); border:1px solid var(--mk-line);
   border-radius:18px; overflow:hidden; box-shadow:0 18px 44px rgba(0,0,0,.10);
-  transition:transform .18s ease, box-shadow .18s ease; cursor:pointer; }
-.mk-mock:hover{ transform:translateY(-2px); box-shadow:0 26px 64px rgba(0,0,0,.14); }
-.mk-mock>img{ width:100%; aspect-ratio:16/10; object-fit:cover; display:block; }
-.mk-mock figcaption{ padding:12px 16px; font-weight:700; color:#1f2937; background:#fff; border-top:1px solid var(--mk-line); }
+  transition:transform .18s ease, box-shadow .18s ease; cursor:pointer;
+}
+.mk-mock:hover{ transform:translateY(-2px); box-shadow:0 26px 64px rgba(0,0,0,.14) }
+.mk-mock:focus-visible{ outline:3px solid var(--mk-gold); outline-offset:3px }
+.mk-mock>img{ width:100%; aspect-ratio:16/10; object-fit:cover; object-position:center; display:block }
+.mk-mock figcaption{ padding:12px 16px; font-weight:700; color:#1f2937; background:#fff; border-top:1px solid var(--mk-line) }
+
 @media (max-width:980px){ .mk-mockups{ grid-template-columns:repeat(2,1fr); gap:20px } }
-@media (max-width:640px){ .mk-mockups{ grid-template-columns:1fr; gap:16px } }
+@media (max-width:640px){
+  .mk-mockups{ grid-template-columns:1fr; gap:16px }
+  .mk-examples .mk-section__title{ font-size:clamp(28px,8vw,38px) }
+}
 
-/* === Bottom-sheet (panel que sube desde abajo) === */
-.mk-no-scroll{ overflow:hidden; }
-
+/* =========================================================
+ *  BOTTOM-SHEET (opcional)
+ * ========================================================= */
+.mk-no-scroll{ overflow:hidden }
 .mk-sheet__backdrop{
   position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.45);
   opacity:0; pointer-events:none; transition:opacity .28s cubic-bezier(.2,.8,.2,1);
 }
-.mk-sheet__backdrop.open{ opacity:1; pointer-events:auto; }
-
+.mk-sheet__backdrop.open{ opacity:1; pointer-events:auto }
 .mk-sheet{
   position:fixed; left:0; right:0; bottom:0; z-index:90;
   transform:translate3d(0,100%,0);
@@ -378,231 +244,136 @@ img{max-width:100%;height:auto;display:block}
   box-shadow:0 -24px 80px rgba(0,0,0,.28);
   max-height:88vh; display:grid; grid-template-rows:auto 1fr;
 }
-.mk-sheet.open{ transform:translate3d(0,0,0); }
-
-.mk-sheet__handle{ width:46px; height:5px; border-radius:999px; background:#e5e7eb; margin:10px auto 6px; }
-.mk-sheet__close{ position:absolute; top:10px; right:12px; border:0; border-radius:12px; background:#111; color:#fff;
-  font-weight:800; padding:8px 10px; cursor:pointer; }
-
-.mk-sheet__scroll{ overflow:auto; padding:12px 16px 18px; }
-.mk-sheet__wrap{ display:grid; grid-template-columns:1.4fr 1fr; gap:18px; align-items:start; }
-.mk-sheet__media{ width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:12px; display:block; }
-.mk-sheet__body{ display:grid; align-content:start; gap:12px; }
-.mk-sheet__title{ font:700 26px/1.1 var(--mk-serif); margin:2px 0 0; }
-.mk-sheet__desc{ color:var(--mk-muted); margin:0; }
-.mk-sheet__cta{ display:flex; gap:10px; flex-wrap:wrap; }
-
-@media (max-width:900px){ .mk-sheet__wrap{ grid-template-columns:1fr; } }
+.mk-sheet.open{ transform:translate3d(0,0,0) }
+.mk-sheet__handle{ width:46px; height:5px; border-radius:999px; background:#e5e7eb; margin:10px auto 6px }
+.mk-sheet__close{ position:absolute; top:10px; right:12px; border:0; border-radius:12px; background:#111; color:#fff; font-weight:800; padding:8px 10px; cursor:pointer }
+.mk-sheet__scroll{ overflow:auto; padding:12px 16px 18px }
+.mk-sheet__wrap{ display:grid; grid-template-columns:1.4fr 1fr; gap:18px; align-items:start }
+.mk-sheet__media{ width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:12px; display:block }
+.mk-sheet__body{ display:grid; align-content:start; gap:12px }
+.mk-sheet__title{ font:700 26px/1.1 var(--mk-serif); margin:2px 0 0 }
+.mk-sheet__desc{ color:var(--mk-muted); margin:0 }
+.mk-sheet__cta{ display:flex; gap:10px; flex-wrap:wrap }
+@media (max-width:900px){ .mk-sheet__wrap{ grid-template-columns:1fr } }
 @media (prefers-reduced-motion:reduce){ .mk-sheet,.mk-sheet__backdrop{ transition:none!important } }
-/* ===== Carrusel pro: arrows “frosted”, fades y sin scrollbar ===== */
+
+/* =========================================================
+ *  CARRUSEL (frosted arrows + h-scroll)
+ * ========================================================= */
 .mk-carousel{
-  position: relative;
-  overflow: visible;                 /* permite que las flechas salgan */
-  --gutter: 24px;                    /* respiración lateral interna */
-  --arrow-out: 32px;                 /* cuánto asoman fuera del carrusel */
-  --arrow-size: 46px;                /* tamaño del botón circular */
-  --arrow-top: 56%;                  /* << más ABAJO; ajusta a gusto */
-  --arrow-bg: rgba(15,15,15,.55);
-  --arrow-bg-hover: rgba(15,15,15,.78);
-  --arrow-ring: rgba(255,255,255,.18);
+  position:relative; overflow:visible;
+  --gutter:24px; --arrow-out:32px; --arrow-size:46px; --arrow-top:56%;
+  --arrow-bg:rgba(15,15,15,.55); --arrow-bg-hover:rgba(15,15,15,.78); --arrow-ring:rgba(255,255,255,.18);
 }
-
-/* viewport con gutter + scrollbar oculto */
 .mk-carousel__viewport{
-  position: relative;
-  padding-inline: var(--gutter);
-  margin-inline: calc(-1 * var(--gutter));  /* conserva alineación con el wrap */
-  overflow-x: auto; overflow-y: hidden;
-  -ms-overflow-style: none;                 /* IE/Edge viejo */
-  scrollbar-width: none;                    /* Firefox */
-  touch-action: pan-x;
+  position:relative; padding-inline:var(--gutter); margin-inline:calc(-1 * var(--gutter));
+  overflow-x:auto; overflow-y:hidden; -ms-overflow-style:none; scrollbar-width:none; touch-action:pan-x;
 }
-.mk-carousel__viewport::-webkit-scrollbar{ width:0; height:0; } /* WebKit */
-
-/* Fades laterales (pista de que hay más) */
+.mk-carousel__viewport::-webkit-scrollbar{ width:0; height:0 }
 .mk-carousel__viewport::before,
 .mk-carousel__viewport::after{
-  content:""; position:absolute; top:0; bottom:0;
-  width: calc(var(--gutter) + 36px);
-  pointer-events:none; z-index:3;
-  background: linear-gradient(90deg, var(--mk-bg,#F7F7F5) 0%, transparent 100%);
+  content:""; position:absolute; top:0; bottom:0; width:calc(var(--gutter) + 36px);
+  pointer-events:none; z-index:3; background:linear-gradient(90deg, var(--mk-bg,#F7F7F5) 0%, transparent 100%);
 }
-.mk-carousel__viewport::before{ left:0; }
-.mk-carousel__viewport::after{ right:0; transform: scaleX(-1); }
-.mk-carousel.is-start .mk-carousel__viewport::before{ opacity:0; }
-.mk-carousel.is-end   .mk-carousel__viewport::after { opacity:0; }
+.mk-carousel__viewport::before{ left:0 }
+.mk-carousel__viewport::after{ right:0; transform:scaleX(-1) }
+.mk-carousel.is-start .mk-carousel__viewport::before{ opacity:0 }
+.mk-carousel.is-end .mk-carousel__viewport::after{ opacity:0 }
 
-/* Track + cards (3/2/1) */
+/* Track + cards (3/2/1) — ESCOPADO para no romper paquetes */
 .mk-carousel__track{ display:flex; gap:16px; }
-.mk-card{
+.mk-carousel__track .mk-card{
   flex:0 0 calc((100% - 32px)/3);
   scroll-snap-align:start;
   background:#fff; border:1px solid var(--mk-line,#e7e7e7);
   border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.06); padding:12px;
 }
-@media (max-width:900px){ .mk-card{ flex-basis:calc((100% - 16px)/2); } }
-@media (max-width:560px){ .mk-card{ flex-basis:100%; } }
+@media (max-width:900px){ .mk-carousel__track .mk-card{ flex-basis:calc((100% - 16px)/2) } }
+@media (max-width:560px){ .mk-carousel__track .mk-card{ flex-basis:100% } }
 
-/* Flechas circulares “frosted” colocadas FUERA y MÁS ABAJO */
 .mk-carousel__arrow{
-  position:absolute; top: var(--arrow-top); transform: translateY(-50%);
-  width: var(--arrow-size); height: var(--arrow-size);
-  display:grid; place-items:center; border-radius:999px;
-  color:#fff; background:var(--arrow-bg);
+  position:absolute; top:var(--arrow-top); transform:translateY(-50%);
+  width:var(--arrow-size); height:var(--arrow-size); display:grid; place-items:center;
+  border-radius:999px; color:#fff; background:var(--arrow-bg);
   border:1px solid var(--arrow-ring);
-  box-shadow: 0 10px 28px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.06);
-  backdrop-filter: saturate(130%) blur(6px);
+  box-shadow:0 10px 28px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.06);
+  backdrop-filter:saturate(130%) blur(6px);
   cursor:pointer; z-index:4; user-select:none;
-  transition: background .18s ease, transform .18s ease, opacity .18s ease;
+  transition:background .18s ease, transform .18s ease, opacity .18s ease;
 }
-.mk-carousel__arrow.prev{ left: calc(-1 * var(--arrow-out)); }
-.mk-carousel__arrow.next{ right: calc(-1 * var(--arrow-out)); }
-.mk-carousel__arrow:hover{ background: var(--arrow-bg-hover); transform: translateY(-50%) scale(1.03); }
-.mk-carousel__arrow[disabled]{ opacity:.35; pointer-events:none; }
-.mk-carousel__arrow:focus-visible{ outline:3px solid #fff; outline-offset:2px; }
+.mk-carousel__arrow.prev{ left:calc(-1 * var(--arrow-out)) }
+.mk-carousel__arrow.next{ right:calc(-1 * var(--arrow-out)) }
+.mk-carousel__arrow:hover{ background:var(--arrow-bg-hover); transform:translateY(-50%) scale(1.03) }
+.mk-carousel__arrow[disabled]{ opacity:.35; pointer-events:none }
+.mk-carousel__arrow:focus-visible{ outline:3px solid #fff; outline-offset:2px }
 
-/* En táctil: sin fades y flechas siempre visibles */
 @media (pointer:coarse){
-  .mk-carousel__viewport::before,
-  .mk-carousel__viewport::after{ display:none; }
+  .mk-carousel__viewport::before,.mk-carousel__viewport::after{ display:none }
 }
-
-/* Si quieres aún más abajo en móvil */
 @media (max-width:640px){
-  .mk-carousel{ --arrow-top: 64%; --arrow-out: 24px; }
+  .mk-carousel{ --arrow-top:64%; --arrow-out:24px }
 }
-/* 1) Recorta el padding propio de la sección de citas */
+
+/* =========================================================
+ *  CITAS (Calendly)
+ * ========================================================= */
 #citas.mk-section{
-  padding-top: 36px;      /* antes 80px */
-  padding-bottom: 28px;   /* antes 80px */
+  padding-top:36px; padding-bottom:28px;   /* compacta la sección como pediste */
+  --cly-beige:#d9c7aa; --cly-green:#0f644a; --cly-ring:#E7E7E7;
+  position:relative; overflow:clip; margin-bottom:0;
 }
+#citas + .mk-section{ padding-top:28px }
 
-/* 2) Si la siguiente sección también es .mk-section, baja su padding-top */
-#citas + .mk-section{
-  padding-top: 28px;      /* antes 80px en tu regla base */
+#citas::before,#citas::after{
+  content:""; position:absolute; width:520px; height:520px; border-radius:50%;
+  background:radial-gradient(closest-side, rgba(197,165,114,.14), transparent 60%);
+  filter:blur(6px); z-index:0;
 }
+#citas::before{ left:-160px; top:-120px }
+#citas::after{ right:-180px; bottom:-140px }
+#citas .mk-wrap{ position:relative; z-index:1 }
 
-/* 3) Ajusta la altura del embed de Calendly (no el contenido interno) */
-#citas .calendly-inline-widget{
-  height: 560px !important;  /* prueba 540–600 según te guste */
-}
-
-/* En móviles dale un poco más de alto para que no recorte */
-@media (max-width: 640px){
-  #citas .calendly-inline-widget{ height: 620px !important; }
-  #citas.mk-section{ padding-bottom: 22px; }
-  #citas + .mk-section{ padding-top: 24px; }
-}
-
-
-/* ====== CITAS · estilo “mock bonito” ====== */
-#citas.mk-section{
-  margin-bottom: 0;
-  padding-bottom: 5px;
-  --cly-beige: #d9c7aa;         /* barra crema del calendario */
-  --cly-green: #0f644a;         /* verde del botón/acentos */
-  --cly-ring:  #E7E7E7;         /* borde suave */
-  position: relative;
-  overflow: clip;
-}
-
-/* manchas suaves de fondo */
-#citas.mk-section::before,
-#citas.mk-section::after{
-  content:"";
-  position:absolute;
-  width:520px; height:520px; border-radius:50%;
-  background: radial-gradient(closest-side, rgba(197,165,114,.14), transparent 60%);
-  filter: blur(6px);
-  z-index:0;
-}#citas.mk-citas--bg{ background: transparent; }
-
-#citas.mk-section::before{ left:-160px; top:-120px; }
-#citas.mk-section::after { right:-180px; bottom:-140px; }
-
-#citas .mk-wrap{ position:relative; z-index:1; }
-
-/* títulos como en el mock */
-#citas .mk-section__head{ margin-bottom:16px; }
+#citas .mk-section__head{ margin-bottom:16px }
 #citas .mk-section__title{
-  font:700 clamp(32px,6vw,56px)/1.05 var(--mk-serif, "Cormorant Garamond", serif);
-  letter-spacing:-.015em;
-  margin:0;
+  font:700 clamp(32px,6vw,56px)/1.05 var(--mk-serif,"Cormorant Garamond",serif);
+  letter-spacing:-.015em; margin:0;
 }
-#citas .mk-section__sub{ font-size:18px; color:var(--mk-muted,#6B7280); margin:6px 0 0; }
+#citas .mk-section__sub{ font-size:18px; color:var(--mk-muted,#6B7280); margin:6px 0 0 }
 
-/* grid de dos columnas */
-.mk-citas{
-  display:grid; grid-template-columns:minmax(300px,520px) 1fr;
-  gap:28px; align-items:start;
+.mk-citas{ display:grid; grid-template-columns:minmax(300px,520px) 1fr; gap:28px; align-items:start }
+.mk-citas__left,.mk-citas__right{
+  background:#fff; border:1px solid var(--cly-ring); border-radius:22px; box-shadow:0 22px 60px rgba(0,0,0,.10);
 }
-
-/* tarjetas */
-.mk-citas__left,
-.mk-citas__right{
-  background:#fff;
-  border:1px solid var(--cly-ring);
-  border-radius:22px;
-  box-shadow:0 22px 60px rgba(0,0,0,.10);
-}
-
-/* ===== Calendly (tarjeta izquierda) ===== */
-.mk-citas__left{ padding:0; overflow:hidden; }
-
-/* “tapa” crema decorativa como cabecera del calendario */
+.mk-citas__left{ padding:0; overflow:hidden }
 .mk-citas__left::before{
-  content:"Selecciona tu fecha";
-  display:block;
-  background:var(--cly-beige);
-  color:#111;
-  font-weight:800;
-  padding:14px 18px;
-  letter-spacing:.2px;
+  content:"Selecciona tu fecha"; display:block; background:var(--cly-beige); color:#111;
+  font-weight:800; padding:14px 18px; letter-spacing:.2px;
 }
 
-/* el iframe ocupa todo y redondea bordes */
-.calendly-inline-widget{ width:100% !important; height:680px !important; }
-.calendly-inline-widget iframe{
-  width:100% !important; height:100% !important; border:0 !important;
-  border-radius:0 0 22px 22px;
+/* Altura del embed (scopeda para no afectar otros iframes) */
+#citas .calendly-inline-widget{ width:100% !important; height:560px !important }
+#citas .calendly-inline-widget iframe{
+  width:100% !important; height:100% !important; border:0 !important; border-radius:0 0 22px 22px;
 }
 
-/* ===== Lado derecho (beneficios + CTA) ===== */
-.mk-citas__right{ padding:20px; }
-.mk-pack__title{
-  font:700 26px/1.1 var(--mk-serif, "Cormorant Garamond", serif);
-  margin:0 0 10px;
-}
-.mk-pack__list{
-  list-style:none; margin:8px 0 16px; padding-left:0; color:#374151;
-}
-.mk-pack__list li{
-  position:relative; padding-left:28px; margin:10px 0;
-}
+.mk-citas__right{ padding:20px }
+.mk-pack__title{ font:700 26px/1.1 var(--mk-serif,"Cormorant Garamond",serif); margin:0 0 10px }
+.mk-pack__list{ list-style:none; margin:8px 0 16px; padding-left:0; color:#374151 }
+.mk-pack__list li{ position:relative; padding-left:28px; margin:10px 0 }
 .mk-pack__list li::before{
-  content:""; position:absolute; left:0; top:3px;
-  width:18px; height:18px; border-radius:50%;
-  background: conic-gradient(var(--cly-green) 0 100%);
-  box-shadow: 0 0 0 3px rgba(15,100,74,.12) inset;
+  content:""; position:absolute; left:0; top:3px; width:18px; height:18px; border-radius:50%;
+  background:conic-gradient(var(--cly-green) 0 100%); box-shadow:0 0 0 3px rgba(15,100,74,.12) inset;
 }
+#citas .mk-btn--outline-dark{ border:2px solid var(--cly-green); color:var(--cly-green); background:#fff; padding:10px 16px }
+#citas .mk-btn--outline-dark:hover{ background:rgba(15,100,74,.06) }
 
-/* convierte tu botón outline en “ghost” verde */
-#citas .mk-btn--outline-dark{
-  border:2px solid var(--cly-green);
-  color:var(--cly-green);
-  background:#fff;
-  padding:10px 16px;
-}
-#citas .mk-btn--outline-dark:hover{ background:rgba(15,100,74,.06); }
-
-/* responsive */
 @media (max-width:980px){
-  .mk-citas{ grid-template-columns:1fr; gap:18px; }
-  .calendly-inline-widget{ height:620px !important; }
+  .mk-citas{ grid-template-columns:1fr; gap:18px }
+  #citas .calendly-inline-widget{ height:620px !important }
 }
 
-/**** =========================================================
- *  CONTACTO (form + CTA WhatsApp)
+/* =========================================================
+ *  CONTACTO
  * ========================================================= */
 .mk-contact{display:grid;gap:26px;grid-template-columns:.9fr 1.1fr;align-items:start}
 .mk-form{display:grid;gap:10px}
@@ -611,10 +382,10 @@ img{max-width:100%;height:auto;display:block}
   border-radius:12px;padding:12px 14px;font:inherit
 }
 .mk-form textarea{min-height:140px;resize:vertical}
-.mk-ok{color:#16a34a} /* mensaje de éxito */
-.mk-err{color:#dc2626} /* mensaje de error */
+.mk-ok{color:#16a34a}
+.mk-err{color:#dc2626}
 
-/**** =========================================================
+/* =========================================================
  *  FOOTER
  * ========================================================= */
 .mk-footer{padding:30px 0;background:#111;color:#fff}
@@ -622,8 +393,8 @@ img{max-width:100%;height:auto;display:block}
 .mk-foot a{color:#fff;text-decoration:none;opacity:.9}
 .mk-foot__links{display:flex;gap:16px;list-style:none;margin:0;padding:0}
 
-/**** =========================================================
- *  BOTÓN FLOTANTE DE WHATSAPP
+/* =========================================================
+ *  BOTÓN FLOTANTE WHATSAPP
  * ========================================================= */
 #mk-wa-float{
   position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0));
@@ -631,15 +402,13 @@ img{max-width:100%;height:auto;display:block}
   background:#25D366;color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.25);z-index:60
 }
 
-/**** =========================================================
- *  RESPONSIVE (≤ 980px)
+/* =========================================================
+ *  RESPONSIVE GENERAL (≤ 980px)
  * ========================================================= */
 @media (max-width:980px){
-  /* Intercambia CTAs visible/invisible */
   .mk-only-lg{display:none}
   .mk-only-sm{display:inline-flex}
 
-  /* Menú móvil desplegable */
   .mk-nav__row{position:relative}
   .mk-nav__toggle{display:inline-flex}
   .mk-menu{
@@ -648,51 +417,20 @@ img{max-width:100%;height:auto;display:block}
   }
   .mk-menu.open{display:flex}
 
-  /* Pricing a una columna y con menos solape */
+  /* Pricing a una columna (como lo tenías) */
   .mk-cards{grid-template-columns:1fr;transform:translateY(-25%)}
 
-  /* Otras rejillas en una columna */
+  /* Rejillas en una columna */
   .mk-mockups,.mk-citas,.mk-contact{grid-template-columns:1fr}
-  .mk-citas__left .calendly-inline-widget{height:720px}
 
-  /* Hero más compacto en pantallas pequeñas */
+  /* Hero compacto */
   .mk-hero__overlay,.mk-hero__inner{min-height:64vh}
   .mk-display{font-size:clamp(30px,9vw,46px)}
 }
 
-/**** =========================================================
+/* =========================================================
  *  ACCESIBILIDAD (reduce motion)
  * ========================================================= */
-@media (prefers-reduced-motion: reduce){
+@media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-}
-/* Contenedor del video de fondo */
-.mk-vhero{ position:relative; min-height:520px; display:grid; place-items:center; overflow:hidden; 
-border-radius: 20PX;}
-.mk-vhero__bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
-.mk-vhero__bg--yt iframe{
-  position:absolute;
-  top:50%; left:50%;
-  /* cubrir todo el contenedor (truco para iframes 16:9) */
-  width:120vw;            /* ancho generoso */
-  height:67.5vw;          /* 120 * 9/16 = 67.5 */
-  min-width:100%;
-  min-height:100%;
-  transform:translate(-50%, -50%);
-  pointer-events:none;    /* que no se pueda interactuar con el player */
-}
-
-/* Oscurecedor y contenido ya existentes (si no los tienes, déjalos) */
-.mk-vhero__scrim{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)); z-index:1; }
-.mk-vhero__inner{ position:relative; z-index:2; text-align:center; color:#fff; padding:60px 20px; }
-.mk-vhero__title{ font:700 clamp(28px,6vw,56px)/1.06 var(--mk-serif); letter-spacing:-.01em; margin:0 0 12px; }
-.mk-vhero__actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-
-/* Respeto a usuarios con ahorro de datos/movimiento */
-@media (prefers-reduced-motion: reduce){
-  .mk-vhero__bg--yt iframe{ animation: none !important; }
-}
-@media (prefers-reduced-data: reduce){
-  .mk-vhero__bg--yt{ display:none; }           /* oculta el video si el usuario pide ahorrar datos */
-  .mk-vhero{ background:#111 url("https://youtu.be/8WzW93KJ8FU?t=4250") center/cover no-repeat; }
 }
