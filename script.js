@@ -69,3 +69,15 @@ if (heroImg) {
   heroImg.addEventListener("mouseenter", stopAuto);
   heroImg.addEventListener("mouseleave", startAuto);
 }
+// Menú responsive (abre/cierra)
+const nav = document.querySelector('.nav');
+const navToggle = document.getElementById('navToggle');
+if (nav && navToggle) {
+  navToggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+  // Cierra el menú al tocar un link
+  document.querySelectorAll('.menu a').forEach(a => {
+    a.addEventListener('click', () => nav.classList.remove('open'));
+  });
+}
