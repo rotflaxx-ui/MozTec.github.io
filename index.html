@@ -61,7 +61,10 @@
 
       <figure class="hero-media">
         <img id="heroImg" src="https://seoescala.com/wp-content/uploads/2023/10/diseno-y-desarrollo-de-paginas-web-1.webp" alt="Proyecto destacado" />
-    
+        <div class="pack-row edge-right">
+  <!-- pack-card + pack-media -->
+</div>
+
         <div class="hero-nav">
           <button class="hero-arrow" id="prev" aria-label="Anterior">←</button>
           <button class="hero-arrow" id="next" aria-label="Siguiente">→</button>
@@ -70,59 +73,80 @@
     </div>
   </section>
 
-  <!-- PÁGINAS WEB -->
-  <section id="web" class="section">
-    <div class="wrap">
-      <header class="section-head">
-        <h2 class="section-title">Páginas Web</h2>
-        <p class="section-sub"> Go-to-market rápido.</p>
-      </header>
+<!-- PÁGINAS WEB -->
+<section id="web" class="section">
+  <div class="wrap">
 
-      <div class="cards">
-        <article class="card">
-          <h3>Paquete 1 — Landing + Catálogo WhatsApp</h3>
-          <p class="price">$3,000 MXN</p>
-          <ul>
-            <li>3 sección </li>
-            <li>Catálogo con precios y botón WhatsApp con el producto</li>
-            <li>Redes sociales, diseño responsive</li>
-            <li>formulario con correo</li>
-            <li>Hosting y dominio propio por 1 año</li>
-            <li>Una actualizacion el primer mes-Gratis-</li>
-          </ul>
-          <a class="btn-line wa" data-wa-text="Me interesa Paquete 1 (web).">Quiero este</a>
-        </article>
+    <header class="section-head">
+      <h2 class="section-title">Páginas Web</h2>
+      <p class="section-sub">Go-to-market rápido.</p>
+    </header>
 
-   
-      </div>
+    <!-- 👇 Contenedor de DOS columnas: tarjeta | foto -->
+    <div class="pack-row">
+      <!-- Tarjeta (tu contenido) -->
+      <article class="pack-card">
+        <h3 class="pack-title">Paquete 1 — Landing + Catálogo WhatsApp</h3>
+        <p class="pack-price">$3,000 MXN</p>
+        <ul class="pack-list">
+          <li>1 sección (inicio)</li>
+          <li>Catálogo con precios y botón WhatsApp con el producto</li>
+          <li>Redes sociales, diseño responsive</li>
+          <li>Formulario con correo</li>
+          <li>Hosting y dominio propio por 1 año</li>
+          <li>Una actualización el primer mes — Gratis</li>
+        </ul>
+        <a class="btn-line wa"
+           data-wa-text="Hola, me interesa el Paquete 1 (web).">
+          Quiero este
+        </a>
+      </article>
+
+      <!-- Imagen AL LADO -->
+      <figure class="pack-media">
+        <img
+          src="https://i0.wp.com/mioagency.com/wp-content/uploads/2020/01/imagenes-llamativas-tendencias-diseno-web-2020-sitio-web.jpg"
+          alt="Ejemplo de sitio web moderno"
+          loading="lazy" decoding="async">
+      </figure>
     </div>
-  </section>
 
+  </div>
+</section>
   <!-- CÁMARAS -->
   <section id="camaras" class="section">
-    <div class="wrap">
-      <header class="section-head">
-        <h2 class="section-title">Instalación de Cámaras</h2>
-        <p class="section-sub">Cobertura, app móvil, garantía. Sin dolores de cabeza.</p>
-      </header>
+  <div class="wrap">
 
-      <div class="cards">
-        <article class="card">
-          <h3>Básico</h3>
-          <p class="price">Desde $6,000 MXN</p>
-          <ul>
-            <li>4 cámaras 1080p (interior/exterior)</li>
-            <li>DVR 4ch + 1TB</li>
-            <li>App y configuración remota</li>
-            <li>Instalación y cableado</li>
-            <li>Garantía 6 meses</li>
-          </ul>
-          <a class="btn-line wa" data-wa-text="Cotizar cámaras paquete Básico.">Cotizar</a>
-        </article>
+    <header class="section-head">
+      <h2 class="section-title">Instalación de Cámaras</h2>
+      <p class="section-sub">Cobertura confiable.</p>
+    </header>
 
-      </div>
+    <!-- 👇 Igual que el otro: DOS columnas + pegado a la derecha -->
+    <div class="pack-row edge-right">
+      <article class="pack-card">
+        <h3 class="pack-title">Básico</h3>
+        <p class="pack-price">Desde $6,000 MXN</p>
+        <ul class="pack-list">
+          <li>4 cámaras 1080p (interior/exterior)</li>
+          <li>DVR 4ch + 1TB</li>
+          <li>App y configuración remota</li>
+          <li>Instalación y cableado</li>
+          <li>Garantía 6 meses</li>
+        </ul>
+        <a class="btn-line wa" data-wa-text="Quiero cotizar el paquete de cámaras Básico.">Cotizar</a>
+      </article>
+
+      <figure class="pack-media">
+        <img
+          src="https://ddtech.mx/assets/uploads/7f28815119406356ce2a12d0d78872b4.jpg"
+          alt="Sistema de seguridad instalado" loading="lazy" decoding="async">
+      </figure>
     </div>
-  </section>
+
+  </div>
+</section>
+
 
   <!-- CONTACTO -->
   <section id="contacto" class="section">
@@ -133,12 +157,52 @@
         <a class="btn-cta cta-whatsapp"
         href="https://wa.me/524772521372?text=Hola%2C%20quiero%20agendar%20una%20cita%20esta%20semana." data-wa-text="Hola, quiero más información.">WhatsApp</a>
       </div>
-      <form class="form" onsubmit="return false">
-        <input type="text" placeholder="Nombre" required />
-        <input type="email" placeholder="Email" required />
-        <textarea placeholder="Mensaje" required></textarea>
-        <button class="btn-line" type="submit">Enviar</button>
-      </form>
+      <form id="contactoForm"
+      action="https://formspree.io/f/mandnnbn" 
+      method="POST"
+      class="form"
+      novalidate>
+
+  <!-- Campo nombre -->
+  <input type="text"
+         name="nombre"                 
+         placeholder="Nombre"
+         autocomplete="name"           
+         required
+         aria-label="Nombre">
+
+  <!-- Campo email -->
+  <input type="email"
+         name="email"                  
+         placeholder="Email"
+         autocomplete="email"          
+         inputmode="email"
+         required
+         aria-label="Email">
+
+  <!-- Mensaje -->
+  <textarea
+         name="mensaje"                
+         placeholder="Mensaje"
+         rows="5"
+         required
+         aria-label="Mensaje"></textarea>
+
+  <!-- Anti-spam (honeypot) -->
+  <input type="text" name="_gotcha" style="display:none">
+  <input type="hidden" name="_subject" value="Nueva consulta desde MozbyTec">
+
+  <button class="btn-line" type="submit">Enviar</button>
+
+  <!-- Mensajes de estado (tu JS los muestra/oculta) -->
+  <p id="form-ok"  hidden style="color:#16a34a;margin-top:8px">
+    ¡Gracias! Te responderemos pronto.
+  </p>
+  <p id="form-err" hidden style="color:#dc2626;margin-top:8px">
+    Ups, hubo un problema. Inténtalo de nuevo.
+  </p>
+</form>
+
     </div>
   </section>
 
