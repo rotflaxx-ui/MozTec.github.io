@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MozbyTec — Web & Cámaras</title>
+  <meta name="description" content="Sitios web que convierten e instalación de cámaras con garantía. Cotiza por WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- side socials (opcionales, estilo vertical) -->
+  <aside class="sidebars">
+    <a href="#" aria-label="Instagram">Instagram</a>
+    <a href="#" aria-label="Facebook">Facebook</a>
+    <a href="#" aria-label="Twitter">Twitter</a>
+  </aside>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="logo" href="#inicio" aria-label="Inicio">
+      <span class="mark"></span>
+      <strong>MozbyTec</strong><span class="sub">Digital work</span>
+    </a>
+
+    <nav class="menu">
+      <a href="#inicio" class="is-active">Inicio</a>
+      <a href="#web">Servicios</a>
+      <a href="#contacto">Contacto</a>
+      <a class="btn-cta cta-whatsapp"
+         href="https://wa.me/524772521372?text=Hola%2C%20quiero%20agendar%20una%20cita%20esta%20semana."
+         target="_blank" rel="noopener">
+        Agenda tu cita
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO dividido: copy izquierda / imagen derecha -->
+  <section id="inicio" class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 class="display">Priorizando la optimizacion de tu negocio</h1> <h1 class="diferente">Diseño Web y Camaras de seguridad</h1>
+        <p class="lead">
+          Creamos sitios web claros que convierten y montamos sistemas de cámaras confiables.
+          Implementación ágil, soporte real.
+        </p>
+        <div class="hero-actions">
+          <a href="#web" class="btn-ghost">Ver Servicios</a>
+        </div>
+      </div>
+
+      <figure class="hero-media">
+        <img id="heroImg" src="https://seoescala.com/wp-content/uploads/2023/10/diseno-y-desarrollo-de-paginas-web-1.webp" alt="Proyecto destacado" />
+    
+        <div class="hero-nav">
+          <button class="hero-arrow" id="prev" aria-label="Anterior">←</button>
+          <button class="hero-arrow" id="next" aria-label="Siguiente">→</button>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PÁGINAS WEB -->
+  <section id="web" class="section">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 class="section-title">Páginas Web</h2>
+        <p class="section-sub"> Go-to-market rápido.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Paquete 1 — Landing + Catálogo WhatsApp</h3>
+          <p class="price">$3,000 MXN</p>
+          <ul>
+            <li>3 sección </li>
+            <li>Catálogo con precios y botón WhatsApp con el producto</li>
+            <li>Redes sociales, diseño responsive</li>
+            <li>formulario con correo</li>
+            <li>Hosting y dominio propio por 1 año</li>
+            <li>Una actualizacion el primer mes-Gratis-</li>
+          </ul>
+          <a class="btn-line wa" data-wa-text="Me interesa Paquete 1 (web).">Quiero este</a>
+        </article>
+
+   
+      </div>
+    </div>
+  </section>
+
+  <!-- CÁMARAS -->
+  <section id="camaras" class="section">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 class="section-title">Instalación de Cámaras</h2>
+        <p class="section-sub">Cobertura, app móvil, garantía. Sin dolores de cabeza.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Básico</h3>
+          <p class="price">Desde $6,000 MXN</p>
+          <ul>
+            <li>4 cámaras 1080p (interior/exterior)</li>
+            <li>DVR 4ch + 1TB</li>
+            <li>App y configuración remota</li>
+            <li>Instalación y cableado</li>
+            <li>Garantía 6 meses</li>
+          </ul>
+          <a class="btn-line wa" data-wa-text="Cotizar cámaras paquete Básico.">Cotizar</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section">
+    <div class="wrap contact">
+      <div>
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-sub">Agenda por WhatsApp o envíame un mensaje.</p><br>
+        <a class="btn-cta cta-whatsapp"
+        href="https://wa.me/524772521372?text=Hola%2C%20quiero%20agendar%20una%20cita%20esta%20semana." data-wa-text="Hola, quiero más información.">WhatsApp</a>
+      </div>
+      <form class="form" onsubmit="return false">
+        <input type="text" placeholder="Nombre" required />
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="Mensaje" required></textarea>
+        <button class="btn-line" type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <small>© <span id="y"></span> MozbyTec</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

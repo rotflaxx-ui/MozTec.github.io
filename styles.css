@@ -1,0 +1,142 @@
+/* ========== TOKENS (Ivory editorial) ========== */
+:root{
+  --bg:#F7F7F5; --panel:#FFFFFF; --ink:#151515; --muted:#6B7280;
+  --line:#E7E7E7; --accent:#111; --brand:#0E0E0E; --gold:#C5A572;
+  --max:1180px; --r:14px;
+  --serif:"Cormorant Garamond", serif;
+  --sans:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;scroll-behavior:smooth}
+img{max-width:100%;display:block}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
+
+/* layout base */
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:18px}
+.section{padding-block:52px;border-top:1px solid var(--line)}
+.section:first-of-type{border-top:none}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.section-title{font-family:var(--serif);font-weight:700;letter-spacing:.2px;font-size:clamp(22px,4.6vw,34px);margin:0}
+.section-sub{color:var(--muted);margin:0}
+
+/* sidebars (vertical) */
+.sidebars{
+  position:fixed; left:8px; top:40%; transform:translateY(-50%);
+  display:flex; flex-direction:column; gap:12px; z-index:2;
+}
+.sidebars a{writing-mode:vertical-rl; text-orientation:mixed; color:#888; font-size:12px; letter-spacing:.08em}
+.sidebars a:hover{color:#111}
+
+/* NAV superior */
+.nav{position:sticky; top:0; z-index:5; background:var(--panel); border-bottom:1px solid var(--line)}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}
+.logo .mark{width:28px;height:28px;background:#111;display:inline-block}
+.logo .sub{color:#7e7e7e;margin-left:6px;font-size:12px}
+.menu{display:flex;align-items:center;gap:18px}
+.menu a{color:var(--ink);text-decoration:none;padding:8px 8px;border-radius:10px}
+.menu a.is-active,.menu a:hover{color:#000;margin-left: 10px;
+}
+.has-sub{position:relative}
+.has-sub .sub{position:absolute;top:100%;left:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 10px;display:none}
+.has-sub:hover .sub{display:block}
+.btn-cta{background:#111;color:#fff;padding:10px 14px;border-radius:12px;border:2px solid #000;font-weight:700}
+.btn-cta:hover{filter:brightness(1.05)}
+/* ====== VARIANTE WHATSAPP PARA "Agenda tu cita" ====== */
+.btn-cta.cta-whatsapp{
+  background:#000000; 
+  color:#ffffff;           
+  border:2px solid #000000;
+}
+.btn-cta.cta-whatsapp:hover{
+  filter:brightness(1.06); /* leve realce al pasar el mouse */
+}
+
+/* (Opcional) Si quieres que el link "Contacto" se vea blanco en el header */
+.link-white{ color:#fff !important; }
+.link-white:hover{ opacity:.9; }
+/* ——— FIX: que el CTA del menú NO sea flotante ——— */
+.nav .menu .wa{
+  position: static !important;   /* quita fixed/absolute si lo heredó de .wa */
+  inset: auto !important;        /* resetea top/right/bottom/left */
+  display: inline-flex;          /* se alinea como los demás links */
+  margin: 0;                     /* evita que quede desplazado */
+}
+
+/* Garantiza una sola fila y buen alineado */
+.menu{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:nowrap;              /* no rompas línea */
+}
+
+/* Evita “saltos” al hacer hover: quita ese margin-left */
+.menu a.is-active, .menu a:hover{
+  color:#000;
+  margin-left: 0;                /* <— estabas metiendo 10px; quítalo */
+}
+
+
+
+/* HERO dividido */
+.hero{position:relative; background:var(--panel); border-bottom:1px solid var(--line)}
+.hero::before{
+  /* blueprint sutil (opcional): pon ../img/blueprint.png si lo tienes */
+  content:""; position:absolute; inset:0; opacity:.08; pointer-events:none;
+  background:url("../img/blueprint.png") center/1200px repeat;
+}
+.hero-grid{
+  position:relative; z-index:1;
+  display:grid; gap:28px; align-items:center;
+  grid-template-columns:1.05fr .95fr;
+  padding-block:58px;
+}
+.display{font-family:var(--serif);font-weight:700;line-height:1.06;margin:0 0 10px;font-size:clamp(28px,6.2vw,56px)}
+.lead{color:#4b5563;max-width:58ch;margin:0 0 18px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-ghost{border:1px solid var(--ink);padding:10px 14px;border-radius:12px;color:var(--ink)}
+.btn-ghost:hover{transform:translateY(-1px)}
+
+/* imagen hero + flechas */
+.hero-media{position:relative; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#f2f2f2}
+.hero-media img{width:100%; height:520px; object-fit:cover; display:block}
+.hero-nav{position:absolute; left:12px; bottom:12px; display:flex; gap:8px}
+.hero-arrow{background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 10px;cursor:pointer}
+.hero-arrow:hover{background:#f5f5f5}
+
+/* Cards (servicios) */
+.cards{display:grid;gap:18px;margin-top:18px}
+@media (min-width:900px){.cards{grid-template-columns:1fr 1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.card h3{margin:0 0 6px;font-family:var(--serif)}
+.price{color:var(--gold);font-weight:700;margin:0 0 10px}
+.card ul{margin:0 0 16px 18px;color:#4b5563}
+.btn-line{border:1px solid var(--ink);padding:10px 14px;border-radius:12px;color:var(--ink);background:#fff}
+.btn-line:hover{transform:translateY(-1px)}
+
+/* Contacto */
+.contact{display:grid;gap:18px}
+@media (min-width:900px){.contact{grid-template-columns:1fr 1fr}}
+.form{display:grid;gap:10px}
+input,textarea{width:100%;background:#fff;border:1px solid var(--line);color:var(--ink);padding:12px;border-radius:12px;font:inherit}
+textarea{min-height:130px;resize:vertical}
+
+/* Footer */
+.footer{border-top:1px solid var(--line);background:var(--panel);padding:18px 0;color:#6b7280;text-align:center}
+
+/* Responsive hero */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr; padding-block:48px}
+  .hero-media img{height:380px}
+}
+.diferente{
+    font-style: italic;
+    background: #000;
+    color: #E7E7E7;
+    border-radius: 10px 10px 10px 10px;
+}
+.heroImg{
+    box-sizing: border-box a;
+
+}
