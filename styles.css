@@ -44,7 +44,7 @@ body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-fon
 
 /* ===== HERO ===== */
 .hero{position:relative;background:var(--panel);border-bottom:1px solid var(--line)}
-.hero::before{content:"";position:absolute;inset:0;opacity:.6;pointer-events:none;background:url("https://www.goodweb.mx/wp-content/uploads/Diseno-de-Paginas-Web-Profesionales-scaled.jpg") center/1200px repeat}
+.hero::before{content:"";position:absolute;inset:0;opacity:.6;pointer-events:none;background:url("https://static.vecteezy.com/system/resources/previews/013/614/661/non_2x/abstract-computer-technology-background-with-circuit-board-and-circle-tech-illustration-vector.jpg") center/1200px repeat}
 .hero-grid{position:relative;z-index:1;display:grid;gap:28px;align-items:center;grid-template-columns:1.05fr .95fr;padding-block:58px}
 .display{font-family:var(--serif);font-weight:700;line-height:1.06;margin:0 0 10px;font-size:clamp(28px,6.2vw,56px)}
 
@@ -64,7 +64,7 @@ body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-fon
 }
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn-ghost{border:1px solid var(--ink);
-  background:rgb(89, 40, 89); :10px 14px; 
+  background:rgb(233, 123, 233); :10px 14px; 
   margin: 3px;
   padding: 12px;
   border-radius:12px;color:white;transition:transform .15s ease}
@@ -173,3 +173,24 @@ textarea{min-height:130px;resize:vertical}
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr;padding-block:48px}
 }
+/* ===== Citas (Calendly + beneficios) ===== */
+.citas-grid{
+  display:grid;
+  grid-template-columns:minmax(300px,520px) 1fr; /* calendario compacto a la izq. */
+  gap:28px;
+  align-items:start;
+}
+.citas-left .calendly-inline-widget{
+  width:100%;
+  height:20px; /* puedes ajustar 580–700 según te guste */
+  border:0;
+  border-color: #000;
+}
+.citas-right .pack-title{ margin:0 0 8px }
+.citas-right .pack-list{ margin:8px 0 16px 18px }
+
+@media (max-width:900px){
+  .citas-grid{ grid-template-columns:1fr }
+  .citas-left .calendly-inline-widget{ height:720px } /* más alto en móvil */
+}
+

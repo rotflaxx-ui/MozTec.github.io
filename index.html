@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MozbyTec — PaginasWeb</title>
+  <title>MozbyTec — Páginas Web</title>
   <meta name="description" content="Sitios web que convierten e instalación de cámaras con garantía. Cotiza por WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,145 +12,171 @@
 </head>
 <body>
 
-  <!-- side socials (opcionales, estilo vertical) -->
-  <aside class="sidebars">
-    <a href="#" aria-label="Instagram">Instagram</a>
-    <a href="#" aria-label="Facebook">Facebook</a>
-    <a href="#" aria-label="Twitter">Twitter</a>
+  <!-- side socials (opcional). Si no tienes enlaces reales, puedes ocultarlo en CSS -->
+  <aside class="sidebars" aria-label="Redes sociales">
+    <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+    <a href="https://facebook.com/"  target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+    <a href="https://x.com/"         target="_blank" rel="noopener" aria-label="X / Twitter">Twitter</a>
   </aside>
 
-<header class="nav">
-  <div class="wrap nav-row">
-    <a class="logo" href="#inicio" aria-label="Inicio">
-      <span class="mark"></span>
-      <strong>MozbyTec</strong><span class="sub">Digital work</span>
-    </a>
-     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
-    <nav class="menu">
-      <a href="#inicio" class="is-active">Inicio</a>
-      <a href="#web">Servicios</a>
-      <a href="#contacto">Contacto</a>
-      <a class="btn-cta cta-whatsapp"
-         href="https://wa.me/524772521372?text=Hola%2C%20quiero%20agendar%20una%20cita%20esta%20semana."
-         target="_blank" rel="noopener">
-        Agenda tu cita
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-row">
+      <a class="logo" href="#inicio" aria-label="Inicio">
+        <span class="mark" aria-hidden="true"></span>
+        <strong>MozbyTec</strong><span class="sub">Digital work</span>
       </a>
-    </nav>
 
-  </div>
-</header>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"
+              aria-controls="siteMenu" aria-expanded="false">☰</button>
 
-</a>
+      <nav id="siteMenu" class="menu" aria-label="Primaria">
+        <a href="#citas">Citas</a>
+        <a href="#inicio" class="is-active">Inicio</a>
+        <a href="#web">Servicios</a>
+        <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO dividido: copy izquierda / imagen derecha -->
+  <!-- HERO -->
   <section id="inicio" class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <h1 class="display">Convierte las busquedas en Google en clientes reales.</h1> <h1 class="diferente">Creacion y Mantenimiento Web</h1>
-        <p class="lead">
-          Sitios Web para tu negocio 100% personalizado
-        </p>
+        <h1 class="display">Convierte las búsquedas en Google en clientes reales.</h1>
+        <h2 class="diferente">Creación y Mantenimiento Web</h2>
+        <p class="lead">Sitios web para tu negocio 100% personalizados.</p>
         <div class="hero-actions">
           <a href="#web" class="btn-ghost">Ver Servicios</a>
+          <a href="#citas" class="btn-ghost">Agenda tu cita</a>
+
         </div>
       </div>
 
       <figure class="hero-media">
-        <img id="heroImg" src="https://seoescala.com/wp-content/uploads/2023/10/diseno-y-desarrollo-de-paginas-web-1.webp" alt="Proyecto destacado" />
-        <div class="pack-row edge-right">
-  <!-- pack-card + pack-media -->
-</div>
-
-        <div class="hero-nav">
+        <img id="heroImg"
+             src="https://seoescala.com/wp-content/uploads/2023/10/diseno-y-desarrollo-de-paginas-web-1.webp"
+             alt="Proyecto destacado" decoding="async">
+        <!-- Si no usarás carrusel aún, oculta este bloque en CSS -->
+        <div class="hero-nav" aria-hidden="true">
           <button class="hero-arrow" id="prev" aria-label="Anterior">←</button>
           <button class="hero-arrow" id="next" aria-label="Siguiente">→</button>
         </div>
       </figure>
     </div>
   </section>
-
-<!-- PÁGINAS WEB -->
-<section id="web" class="section">
+<!-- CITAS -->
+<section id="citas" class="section">
   <div class="wrap">
-
     <header class="section-head">
-      <h2 class="section-title">Páginas Web Basico</h2>
-      <p class="section-sub">Go-to-market rápido.</p>
+      <h2 class="section-title">Agenda tu cita</h2>
+      <p class="section-sub">Elige día y hora. Confirmación automática.</p>
     </header>
+      
+    <div class="citas-grid">
+      <!-- Calendly (izquierda, más compacto) -->
+      <div class="citas-left">
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/rotflaxx/30min?hide_event_type_details=1&hide_gdpr_banner=1"
+             style="min-width:280px;height:620px;">
+        </div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      </div>
 
-    <!-- 👇 Contenedor de DOS columnas: tarjeta | foto -->
-    <div class="pack-row">
-      <!-- Tarjeta (tu contenido) -->
-      <article class="pack-card">
-        <h3 class="pack-title">Paquete 1 — Landing + Catálogo WhatsApp</h3>
-        <p class="pack-price">$3,000 MXN</p>
+      <!-- Beneficios (derecha) -->
+      <aside class="citas-right">
+        <h3 class="pack-title">¿Por qué agendar en línea?</h3>
         <ul class="pack-list">
-          <li>hasta 4 secciones</li>
-          <li>Catálogo con precios y botón WhatsApp con el producto</li>
-          <li>Redes sociales, diseño responsive</li>
-          <li>Formulario con correo</li>
-          <li>Hosting y dominio propio por 1 año</li>
-          <li>Una actualización el primer mes — Gratis</li>
+          <li>Confirmación inmediata y recordatorios automáticos.</li>
+          <li>Se sincroniza con Google Calendar (sin choques de horario).</li>
+          <li>Agenda 24/7 sin esperar respuesta.</li>
+          <li>Reprogramación en 1 clic si algo se atraviesa.</li>
+          <li>Menos no-shows y mejor control de tiempos.</li>
         </ul>
-        <a class="btn-line wa"
-           data-wa-text="Hola, me interesa el Paquete 1 (web).">
-          Quiero este
-        </a>
-      </article>
-
-      <!-- Imagen AL LADO -->
-      <figure class="pack-media">
-        <img
-          src="https://www.pentaweb.es/wp-content/uploads/2019/05/pagina-web-clinica-de-benito.jpg"
-          alt="Ejemplo de sitio web moderno"
-          loading="lazy" decoding="async">
-      </figure>
+        <p class="section-sub">Tip: si no ves horarios, es que ya están ocupados o fuera de tu ventana de atención.</p><br>
+        <a href="#contacto" class="btn-line">¿Dudas? Escríbeme</a>
+      </aside>
     </div>
-
   </div>
 </section>
-  <!-- CÁMARAS -->
+
+
+  <!-- PÁGINAS WEB -->
+  <section id="web" class="section">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 class="section-title">Páginas Web Básico</h2>
+        <p class="section-sub">Go-to-market rápido.</p>
+      </header>
+
+      <div class="pack-row">
+        <article class="pack-card">
+          <h3 class="pack-title">Paquete 1 — Landing + Catálogo WhatsApp</h3>
+          <p class="pack-price">$3,000 MXN</p>
+          <ul class="pack-list">
+            <li>Hasta 4 secciones</li>
+            <li>Catálogo con precios y botón WhatsApp por producto</li>
+            <li>Redes sociales, diseño responsive</li>
+            <li>Formulario con correo</li>
+            <li>Hosting y dominio propio por 1 año</li>
+            <li>Una actualización el primer mes — Gratis</li>
+          </ul>
+          <!-- IMPORTANTE: añade href por defecto (fallback) -->
+          <a class="btn-line wa"
+             href="https://wa.me/524772521372?text=Hola%2C%20me%20interesa%20el%20Paquete%201%20(web)."
+             target="_blank" rel="noopener"
+             data-wa-text="Hola, me interesa el Paquete 1 (web).">
+            Quiero este
+          </a>
+        </article>
+
+        <figure class="pack-media">
+          <img
+            src="https://www.pentaweb.es/wp-content/uploads/2019/05/pagina-web-clinica-de-benito.jpg"
+            alt="Ejemplo de sitio web moderno"
+            loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIUM -->
   <section id="premium" class="section">
-  <div class="wrap">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 class="section-title">Paquete Web Premium</h2>
+        <p class="section-sub">Para negocios que quieren crecer clientes y vender online.</p>
+      </header>
 
-    <header class="section-head">
-      <h2 class="section-title">Paquete Web Premium</h2>
-      <p class="section-sub">Para negocios que quieren crecer clientes y vender online.</p>
-    </header>
+      <div class="pack-row edge-right">
+        <article class="pack-card">
+          <h3 class="pack-title">Premium</h3>
+          <p class="pack-price">$6,000 MXN</p>
+          <ul class="pack-list">
+            <li>Sitio multipágina (Inicio, Servicios, Galería, Testimonios, Contacto)</li>
+            <li>Agenda de citas online integrada</li>
+            <li>E-commerce ligero (hasta 20 productos/servicios con pagos)</li>
+            <li>Chat en vivo y redes sociales conectadas</li>
+            <li>SEO avanzado + métricas mensuales (GA & Search Console)</li>
+            <li>Blog/Noticias autoeditable</li>
+          </ul>
+          <a class="btn-line wa"
+             href="https://wa.me/524772521372?text=Quiero%20contratar%20el%20Paquete%20Web%20Premium%20de%20$6,000."
+             target="_blank" rel="noopener"
+             data-wa-text="Quiero contratar el Paquete Web Premium de $6,000.">
+            📲 Contratar Premium
+          </a>
+        </article>
 
-    <!-- 👇 Igual que el otro: DOS columnas + pegado a la derecha -->
-    <div class="pack-row edge-right">
-      <article class="pack-card">
-        <h3 class="pack-title">Premium</h3>
-        <p class="pack-price">$6,000 MXN</p>
-        <ul class="pack-list">
-          <li>Sitio multipágina (Inicio, Servicios, Galería, Testimonios, Contacto)</li>
-          <li>Agenda de citas online integrada</li>
-          <li>E-commerce ligero (hasta 20 productos/servicios con pagos)</li>
-          <li>Chat en vivo y redes sociales conectadas</li>
-          <li>SEO avanzado + métricas mensuales (Google Analytics & Search Console)</li>
-          <li>Blog/Noticias autoeditable</li>
-        </ul>
-        <a class="btn-line wa" 
-           data-wa-text="Quiero contratar el Paquete Web Premium de $6,000.">
-           📲 Contratar Premium
-        </a>
-      </article>
-
-      <figure class="pack-media">
-        <img
-          src="https://mediodigital.mx/wp-content/uploads/2022/03/tipos-de-e-commerce-Lluvia-Digital.jpg"
-          alt="Ejemplo de sitio web premium"
-          loading="lazy" decoding="async">
-      </figure>
+        <figure class="pack-media">
+          <img
+            src="https://mediodigital.mx/wp-content/uploads/2022/03/tipos-de-e-commerce-Lluvia-Digital.jpg"
+            alt="Ejemplo de sitio web premium"
+            loading="lazy" decoding="async">
+        </figure>
+      </div>
     </div>
-
-  </div>
-</section>
-
+  </section>
 
   <!-- CONTACTO -->
   <section id="contacto" class="section">
@@ -159,54 +185,29 @@
         <h2 class="section-title">Contacto</h2>
         <p class="section-sub">Agenda por WhatsApp o envíame un mensaje.</p><br>
         <a class="btn-cta cta-whatsapp"
-        href="https://wa.me/524772521372?text=Hola%2C%20quiero%20agendar%20una%20cita%20esta%20semana." data-wa-text="Hola, quiero más información.">WhatsApp</a>
+           href="https://wa.me/524772521372?text=Hola%2C%20quiero%20agendar%20una%20cita%20esta%20semana."
+           target="_blank" rel="noopener"
+           data-wa-text="Hola, quiero más información.">
+          WhatsApp
+        </a>
       </div>
+
       <form id="contactoForm"
-      action="https://formspree.io/f/mandnnbn" 
-      method="POST"
-      class="form"
-      novalidate>
+            action="https://formspree.io/f/mandnnbn"
+            method="POST" class="form" novalidate>
+        <input type="text"  name="nombre"  placeholder="Nombre"  autocomplete="name"  required aria-label="Nombre">
+        <input type="email" name="email"   placeholder="Email"   autocomplete="email" inputmode="email" required aria-label="Email">
+        <textarea name="mensaje" placeholder="Mensaje" rows="5" required aria-label="Mensaje"></textarea>
 
-  <!-- Campo nombre -->
-  <input type="text"
-         name="nombre"                 
-         placeholder="Nombre"
-         autocomplete="name"           
-         required
-         aria-label="Nombre">
+        <!-- Anti-spam (honeypot) -->
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="Nueva consulta desde MozbyTec">
 
-  <!-- Campo email -->
-  <input type="email"
-         name="email"                  
-         placeholder="Email"
-         autocomplete="email"          
-         inputmode="email"
-         required
-         aria-label="Email">
+        <button class="btn-line" type="submit">Enviar</button>
 
-  <!-- Mensaje -->
-  <textarea
-         name="mensaje"                
-         placeholder="Mensaje"
-         rows="5"
-         required
-         aria-label="Mensaje"></textarea>
-
-  <!-- Anti-spam (honeypot) -->
-  <input type="text" name="_gotcha" style="display:none">
-  <input type="hidden" name="_subject" value="Nueva consulta desde MozbyTec">
-
-  <button class="btn-line" type="submit">Enviar</button>
-
-  <!-- Mensajes de estado (tu JS los muestra/oculta) -->
-  <p id="form-ok"  hidden style="color:#16a34a;margin-top:8px">
-    ¡Gracias! Te responderemos pronto.
-  </p>
-  <p id="form-err" hidden style="color:#dc2626;margin-top:8px">
-    Ups, hubo un problema. Inténtalo de nuevo.
-  </p>
-</form>
-
+        <p id="form-ok"  hidden style="color:#16a34a;margin-top:8px">¡Gracias! Te responderemos pronto.</p>
+        <p id="form-err" hidden style="color:#dc2626;margin-top:8px">Ups, hubo un problema. Inténtalo de nuevo.</p>
+      </form>
     </div>
   </section>
 
@@ -215,18 +216,18 @@
       <small>© <span id="y"></span> MozbyTec</small>
     </div>
   </footer>
+
   <!-- Botón flotante WhatsApp -->
-<a id="wa-float"
-   href="https://wa.me/524772521372?text=Me%20interesa"
-   aria-label="WhatsApp"
-   title="Escríbeme por WhatsApp">
-  <!-- Ícono WhatsApp (SVG) -->
-  <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
-    <path fill="currentColor" d="M19.1 17.6c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 .1c-.2-.3-.9-1.2-.9-2s.6-.7.8-.9.2-.5 0-.8c-.1-.2-.7-1.7-.9-2s-.5-.5-.7-.5h-.6c-.2 0-.8.1-1.3.6s-1.3 1.3-1.3 3.1 1.3 3.6 1.5 3.8 2.6 4.1 6.3 5.6c2.4 1 3.3 1.1 4.5.9 1-.2 2.1-.9 2.4-1.8s.3-1.6.2-1.8-.3-.2-.7-.4zM16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8C11.6 28.4 13.7 29 16 29c7.2 0 13-5.8 13-13S23.2 3 16 3z"/>
-  </svg>
-</a>
+  <a id="wa-float"
+     href="https://wa.me/524772521372?text=Me%20interesa"
+     aria-label="WhatsApp"
+     title="Escríbeme por WhatsApp">
+    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+      <path fill="currentColor" d="M19.1 17.6c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 .1c-.2-.3-.9-1.2-.9-2s.6-.7.8-.9.2-.5 0-.8c-.1-.2-.7-1.7-.9-2s-.5-.5-.7-.5h-.6c-.2 0-.8.1-1.3.6s-1.3 1.3-1.3 3.1 1.3 3.6 1.5 3.8 2.6 4.1 6.3 5.6c2.4 1 3.3 1.1 4.5.9 1-.2 2.1-.9 2.4-1.8s.3-1.6.2-1.8-.3-.2-.7-.4zM16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8C11.6 28.4 13.7 29 16 29c7.2 0 13-5.8 13-13S23.2 3 16 3z"/>
+    </svg>
+  </a>
 
-
-  <script src="script.js"></script>
+  <!-- Tu JS -->
+  <script src="script.js" defer></script>
 </body>
 </html>
