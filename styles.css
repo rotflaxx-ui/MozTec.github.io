@@ -129,14 +129,15 @@ img{max-width:100%;height:auto;display:block}
   position: relative;
   z-index: 0;
 }/* Sección de paquetes */
-.mk-packages{
-  position: relative;
-  z-index: 1; /* tarjetas por encima del fondo negro */
-  /* coloca la sección justo “1px” después de iniciar la franja */
-  margin-top: calc(var(--mk-band-h) * -1 + var(--mk-packages-offset));
-  /* ajusta si quieres más aire bajo las tarjetas (también extiende la franja) */
-  padding-bottom: clamp(120px, 18vw, 180px);
-}
+
+/* Espacio blanco seguro entre paquetes y el video-hero */
+
+
+/* Corrige espacio entre franja negra y la siguiente sección en desktop */
+@media (min-width: 981px){
+  .mk-packages{
+    padding-bottom: clamp(140px, 10vw, 200px); /* más aire blanco */
+  }
 
 /* Alfombra negra que cubre *toda* la sección de paquetes */
 .mk-packages::before{
@@ -166,21 +167,10 @@ img{max-width:100%;height:auto;display:block}
 
 /* CONTENEDOR DE PAQUETES (no toca la franja) */
 /* Lo “subimos” exactamente hasta quedar 1px por debajo del inicio de la franja */
-.mk-packages{
-  position: relative;
-  margin-top: calc(var(--mk-band-h) * -1 + 1px);  /* 1px después de empezar la franja */
-  padding-bottom: clamp(120px, 18vw, 180px);      /* espacio para que no choque con la sección siguiente */
-  isolation: isolate;
-}
+
 
 /* Tarjetas: grid normal (ya no absolute/translate), centradas con el mismo ancho que el wrap */
-.mk-packages{
-  position: relative;
-  margin-top: calc(var(--mk-band-h) * -1 + var(--mk-packages-offset));
-  padding-bottom: clamp(120px, 18vw, 180px);  /* restaura el “aire” */
-  isolation: isolate;
-  padding-bottom: 2%;
-}
+
 
 .mk-packages .mk-wrap{ position: relative;}
 .mk-cards{
