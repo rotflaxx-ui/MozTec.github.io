@@ -355,58 +355,7 @@
 
   <!-- Panel lateral (placeholder) -->
   <div id="mkPanelBackdrop" class="mk-panel__backdrop" aria-hidden="true"></div>
-  <aside id="mkPanel" class="mk-panel" role="dialog" aria-modal="true" aria-labelledby="mkPanelTitle" aria-hidden="true"></aside>
+  <aside id="mkPanel" class="mk-panel" role="dialog" aria-modal="true" aria-labelledby="mkPanelTitle" aria-hidden="true"></aside> 
+  
 </body>
 </html>
-/* =========================================================
-   HOTFIX FINAL — paquetes estables como en VSCode
-   ========================================================= */
-
-/* 0) Arregla posibles comentarios rotos al principio de tu CSS:
-   Asegúrate que los comentarios empiecen con  "/*" y no con  "/****".
-   (No cambia estilos, pero evita que el parser ignore bloques)
-*/
-
-/* 1) APLASTA cualquier translateY heredado en .mk-cards (sí o sí) */
-.mk-cards { transform: none !important; }
-
-/* 2) Fuerza 2 columnas en paquetes hasta anchos muy chicos,
-      y sólo baja a 1 columna en pantallas realmente estrechas */
-.mk-packages .mk-cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 28px;
-}
-
-/* 3) Cuando de verdad sea mini (ej. teléfonos muy angostos) → 1 columna */
-@media (max-width: 740px){
-  .mk-packages .mk-cards {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* 4) Aísla el carrusel para que SUS .mk-card no toquen los paquetes */
-.mk-cards .mk-card { flex: initial !important; }  /* defensa */
-.mk-carousel__track .mk-card{
-  flex: 0 0 calc((100% - 32px)/3) !important;
-  scroll-snap-align: start;
-  background: #fff;
-  border: 1px solid var(--mk-line, #e7e7e7);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.06);
-  padding: 12px;
-}
-@media (max-width: 900px){
-  .mk-carousel__track .mk-card{ flex-basis: calc((100% - 16px)/2) !important; }
-}
-@media (max-width: 560px){
-  .mk-carousel__track .mk-card{ flex-basis: 100% !important; }
-}
-
-/* 5) Mantén la “alfombra negra” detrás de paquetes sin moverlos */
-.mk-packages{ position: relative; padding-bottom: 120px; }
-.mk-packages::before{
-  content: "";
-  position: absolute; left: 0; right: 0; top: 0;
-  height: 350px; background: #0b0b0b; z-index: -1;
-}
