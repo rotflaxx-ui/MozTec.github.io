@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- CSS (ruta relativa + cache-buster) -->
+  <link rel="stylesheet" href="./styles.css?v=2025-09-05d" />
 </head>
 <body class="mk-body">
 
@@ -51,7 +51,6 @@
 
   <main id="inicio" role="main">
     <!-- ================== HERO (foto + overlay) ================== -->
-    <!-- Cambia SOLO esta URL si quieres otra imagen -->
     <section class="mk-hero"
       style="--mk-hero-img:url('https://www.chio-lecca.edu.pe/cdn/shop/articles/chio-lecca-blog-plan-de-negocios-de-moda.jpg?v=1718410867');">
       <div class="mk-hero__overlay" aria-hidden="true"></div>
@@ -126,122 +125,94 @@
         </div>
       </div>
     </section>
+
     <!-- ================== SECCIÓN VIDEO-HERO (YouTube) ================== -->
-<section id="video-hero" class="mk-vhero" aria-label="Presentación en video">
-  <!-- Video de fondo -->
-  <div class="mk-vhero__bg mk-vhero__bg--yt" aria-hidden="true">
-    <iframe
-      src="https://www.youtube-nocookie.com/embed/c0OcAJeeG_8?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&loop=1&playlist=c0OcAJeeG_8&rel=0"
-      title="Video de fondo"
-      frameborder="0"
-      allow="autoplay; encrypted-media; picture-in-picture"
-      allowfullscreen
-      loading="lazy">
-    </iframe>
-  </div>
-
-  <!-- Oscurecimiento para legibilidad -->
-  <div class="mk-vhero__scrim" aria-hidden="true"></div>
-
-  <!-- Contenido inmóvil, centrado -->
-  <div class="mk-vhero__inner">
-    <h2 class="mk-vhero__title">DISEÑO DE PAGINA PERSONALIZADO</h2>
-    <div class="mk-vhero__actions">
-      <a href="#web" class="mk-btn mk-btn--gold">Ver servicios</a>
-      <a href="#citas" class="mk-btn mk-btn--ghost">Agendar cita</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ================== EJEMPLOS / SERVICIOS ================== -->
-<section id="web" class="mk-section mk-examples" aria-labelledby="ejemplos-title">
-  <div class="mk-wrap">
-    <header class="mk-section__head">
-      <h2 id="ejemplos-title" class="mk-section__title">Así se vería tu negocio online</h2>
-    </header>
-<div class="mk-carousel">
-  <div class="mk-carousel__viewport" tabindex="0">
-    <div class="mk-carousel__track">
-      <!-- Barbería -->
-      <figure class="mk-card mk-mock" role="button" tabindex="0"
-              data-title="Barbería"
-              data-showcase="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop"
-              data-link="https://tu-demo-barberia.com">
-        <img src="https://cdn.forbes.com.mx/2022/10/barberia-e1666243935962.jpg"
-             alt="Sitio web tipo barbería" loading="lazy" decoding="async">
-        <figcaption>Barbería</figcaption>
-      </figure>
-
-      <!-- Servicios de salud -->
-      <figure class="mk-card mk-mock" role="button" tabindex="0"
-              data-title="Servicios de salud"
-              data-showcase="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?q=80&w=1600&auto=format&fit=crop"
-              data-link="https://tu-demo-dental.com">
-        <img src="https://blog.planseguro.com.mx/wp-content/uploads/2023/03/servicios-de-salud-mas-innovadores.jpg"
-             alt="Sitio web de servicios de salud" loading="lazy" decoding="async">
-        <figcaption>Servicios de salud</figcaption>
-      </figure>
-
-      <!-- Restaurante -->
-      <figure class="mk-card mk-mock" role="button" tabindex="0"
-              data-title="Restaurante"
-              data-showcase="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop"
-              data-link="https://tu-demo-restaurante.com">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop"
-             alt="Sitio web tipo restaurante" loading="lazy" decoding="async">
-        <figcaption>Restaurante</figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <!-- Flechas -->
-  <button class="mk-carousel__arrow prev" aria-label="Anterior">
-    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-      <path d="M14.5 4.5L7 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <button class="mk-carousel__arrow next" aria-label="Siguiente">
-    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-      <path d="M9.5 4.5L17 12l-7.5 7.5" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-</div>
-
-<!-- ========== PREVIEW BOTTOM-SHEET (sube desde abajo) ========== -->
-<div id="mkSheetBackdrop" class="mk-sheet__backdrop" aria-hidden="true"></div>
-<section id="mkSheet" class="mk-sheet" aria-hidden="true" aria-label="Vista previa del ejemplo">
-  <div class="mk-sheet__handle" aria-hidden="true"></div>
-  <button id="mkSheetClose" class="mk-sheet__close" aria-label="Cerrar">✕</button>
-
-  <div class="mk-sheet__scroll">
-    <div class="mk-sheet__wrap">
-      <img id="mkSheetImg" class="mk-sheet__media" src="" alt="">
-      <div class="mk-sheet__body">
-        <h3 id="mkSheetTitle" class="mk-sheet__title">Ejemplo</h3>
-        <p id="mkSheetDesc" class="mk-sheet__desc">Así se vería tu sitio en diferentes dispositivos.</p>
-        <div class="mk-sheet__cta">
-          <a id="mkSheetDemo" class="mk-btn mk-btn--outline-dark" href="#" target="_blank" rel="noopener">Ver demo</a>
-          <a id="mkSheetQuote" class="mk-btn mk-btn--gold mk-wa" href="#" target="_blank" rel="noopener">Pedir este estilo</a>
+    <section id="video-hero" class="mk-vhero" aria-label="Presentación en video">
+      <div class="mk-vhero__bg mk-vhero__bg--yt" aria-hidden="true">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/c0OcAJeeG_8?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&loop=1&playlist=c0OcAJeeG_8&rel=0"
+          title="Video de fondo" frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen loading="lazy">
+        </iframe>
+      </div>
+      <div class="mk-vhero__scrim" aria-hidden="true"></div>
+      <div class="mk-vhero__inner">
+        <h2 class="mk-vhero__title">DISEÑO DE PAGINA PERSONALIZADO</h2>
+        <div class="mk-vhero__actions">
+          <a href="#web" class="mk-btn mk-btn--gold">Ver servicios</a>
+          <a href="#citas" class="mk-btn mk-btn--ghost">Agendar cita</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<section
-  id="citas"
-  class="mk-section mk-citas--bg"
-  style="--apt-bg: url('https://blog-exatec.tec.mx/sites/exatec/files/styles/wide/public/2025-04/como-ser-consultora-o-consultor-empresarial-algunos-consejos.jpg.webp?itok=uLGFb5K1');"
-  aria-labelledby="citas-title">
+    </section>
 
-  <!-- Capa de fondo -->
-  <div class="mk-apt-bg" aria-hidden="true"></div>
+    <!-- ================== EJEMPLOS / SERVICIOS ================== -->
+    <section id="web" class="mk-section mk-examples" aria-labelledby="ejemplos-title">
+      <div class="mk-wrap">
+        <header class="mk-section__head">
+          <h2 id="ejemplos-title" class="mk-section__title">Así se vería tu negocio online</h2>
+        </header>
 
-  <div class="mk-wrap">
-    ...
+        <div class="mk-carousel">
+          <div class="mk-carousel__viewport" tabindex="0">
+            <div class="mk-carousel__track">
+              <!-- Barbería -->
+              <figure class="mk-card mk-mock" role="button" tabindex="0"
+                      data-title="Barbería"
+                      data-showcase="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop"
+                      data-link="https://tu-demo-barberia.com">
+                <img src="https://cdn.forbes.com.mx/2022/10/barberia-e1666243935962.jpg"
+                     alt="Sitio web tipo barbería" loading="lazy" decoding="async">
+                <figcaption>Barbería</figcaption>
+              </figure>
 
+              <!-- Servicios de salud -->
+              <figure class="mk-card mk-mock" role="button" tabindex="0"
+                      data-title="Servicios de salud"
+                      data-showcase="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?q=80&w=1600&auto=format&fit=crop"
+                      data-link="https://tu-demo-dental.com">
+                <img src="https://blog.planseguro.com.mx/wp-content/uploads/2023/03/servicios-de-salud-mas-innovadores.jpg"
+                     alt="Sitio web de servicios de salud" loading="lazy" decoding="async">
+                <figcaption>Servicios de salud</figcaption>
+              </figure>
+
+              <!-- Restaurante -->
+              <figure class="mk-card mk-mock" role="button" tabindex="0"
+                      data-title="Restaurante"
+                      data-showcase="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop"
+                      data-link="https://tu-demo-restaurante.com">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop"
+                     alt="Sitio web tipo restaurante" loading="lazy" decoding="async">
+                <figcaption>Restaurante</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Flechas -->
+          <button class="mk-carousel__arrow prev" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path d="M14.5 4.5L7 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="mk-carousel__arrow next" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path d="M9.5 4.5L17 12l-7.5 7.5" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== CITAS ================== -->
+    <section
+      id="citas"
+      class="mk-section mk-citas--bg"
+      style="--apt-bg: url('https://blog-exatec.tec.mx/sites/exatec/files/styles/wide/public/2025-04/como-ser-consultora-o-consultor-empresarial-algunos-consejos.jpg.webp?itok=uLGFb5K1');"
+      aria-labelledby="citas-title">
+
+      <div class="mk-wrap">
         <header class="mk-section__head">
           <h2 id="citas-title" class="mk-section__title">Agenda una cita gratis</h2>
           <p class="mk-section__sub">Elige día y hora. Confirmación automática.</p>
@@ -251,7 +222,7 @@
           <div class="mk-citas__left">
             <div class="calendly-inline-widget"
                  data-url="https://calendly.com/rotflaxx/30min?hide_event_type_details=1&hide_gdpr_banner=1"
-                 style="min-width:280px;height:620px;"></div>
+                 style="min-width:280px;"></div>
           </div>
 
           <aside class="mk-citas__right">
@@ -273,65 +244,8 @@
         </div>
       </div>
     </section>
-    <script>
-(function autoResizeCalendly(){
-  const widget = document.querySelector('#citas .calendly-inline-widget');
-  if(!widget) return;
 
-  // Utilidad para fijar altura con límites (evita crecer infinito)
-  const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
-  const setH = (px) => widget.style.height = clamp(px, 680, 1300) + 'px';
-
-  // Alturas sugeridas por paso (tuneables)
-  const HEIGHTS = {
-    profile: 780,       // vista del calendario (elegir día)
-    datetime: 980,      // lista de horarios (más alto)
-    scheduled: 820      // pantalla de confirmación
-  };
-
-  // Ajuste inicial por si llega antes de cualquier mensaje
-  setH(HEIGHTS.profile);
-
-  // Calendly manda mensajes postMessage; los escuchamos
-  window.addEventListener('message', function(e){
-    try {
-      const host = new URL(e.origin).hostname;
-      if (!host.endsWith('calendly.com')) return;   // ignorar otros orígenes
-    } catch(_) { return; }
-
-    const data = e.data || {};
-    const evt  = data.event || data?.payload?.event;
-
-    // 1) Algunos embeds modernos envían el alto exacto:
-    //    { event: 'calendly.frameHeight', height: <px> }
-    if (evt === 'calendly.frameHeight' && (data.height || data?.payload?.height)){
-      const h = data.height || data.payload.height;
-      setH(h);
-      return;
-    }
-
-    // 2) Eventos "semánticos" de Calendly (documentados):
-    //    - calendly.profile_page_viewed
-    //    - calendly.date_and_time_selected
-    //    - calendly.event_scheduled
-    switch(evt){
-      case 'calendly.profile_page_viewed':
-        setH(HEIGHTS.profile);
-        break;
-      case 'calendly.date_and_time_selected':
-        setH(HEIGHTS.datetime);
-        break;
-      case 'calendly.event_scheduled':
-        setH(HEIGHTS.scheduled);
-        break;
-      default:
-        // No-op
-    }
-  }, false);
-})();
-</script>
-
-    <!-- CONTACTO -->
+    <!-- ================== CONTACTO ================== -->
     <section id="contacto" class="mk-section" aria-labelledby="contacto-title">
       <div class="mk-wrap mk-contact">
         <div>
@@ -368,62 +282,79 @@
         </form>
       </div>
     </section>
-</main>
+  </main>
 
-<!-- ============== BOTTOM-SHEET (visor que sube desde abajo) ============== -->
-<div class="mk-sheet__backdrop" id="mkSheetBackdrop" aria-hidden="true"></div>
+  <!-- ============== BOTTOM-SHEET (único) ============== -->
+  <div class="mk-sheet__backdrop" id="mkSheetBackdrop" aria-hidden="true"></div>
+  <div class="mk-sheet" id="mkSheet" role="dialog" aria-modal="true" aria-labelledby="mkSheetTitle" aria-hidden="true">
+    <div class="mk-sheet__handle" aria-hidden="true"></div>
+    <button class="mk-sheet__close" id="mkSheetClose" aria-label="Cerrar">✕</button>
 
-<div class="mk-sheet" id="mkSheet" role="dialog" aria-modal="true" aria-labelledby="mkSheetTitle" aria-hidden="true">
-  <div class="mk-sheet__handle" aria-hidden="true"></div>
-  <button class="mk-sheet__close" id="mkSheetClose" aria-label="Cerrar">✕</button>
-
-  <div class="mk-sheet__wrap">
-    <img class="mk-sheet__media" id="mkSheetImg" alt="">
-    <div class="mk-sheet__body">
-      <h3 class="mk-sheet__title" id="mkSheetTitle">Ejemplo</h3>
-      <p class="mk-sheet__desc">Vista previa del estilo. ¿Te gusta para tu negocio?</p>
-      <div class="mk-sheet__cta">
-        <a class="mk-btn mk-btn--outline-dark" id="mkSheetDemo" target="_blank" rel="noopener">Ver demo</a>
-        <a class="mk-btn mk-btn--gold mk-wa" id="mkSheetQuote" target="_blank" rel="noopener">Pedir este estilo</a>
+    <div class="mk-sheet__wrap">
+      <img class="mk-sheet__media" id="mkSheetImg" alt="">
+      <div class="mk-sheet__body">
+        <h3 class="mk-sheet__title" id="mkSheetTitle">Ejemplo</h3>
+        <p class="mk-sheet__desc">Vista previa del estilo. ¿Te gusta para tu negocio?</p>
+        <div class="mk-sheet__cta">
+          <a class="mk-btn mk-btn--outline-dark" id="mkSheetDemo" target="_blank" rel="noopener">Ver demo</a>
+          <a class="mk-btn mk-btn--gold mk-wa" id="mkSheetQuote" target="_blank" rel="noopener">Pedir este estilo</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ============== FOOTER ============== -->
-<footer class="mk-footer" role="contentinfo">
-  <div class="mk-wrap mk-foot">
-    <small>© <span id="y"></span> MozbyTec — León, Gto.</small>
-    <ul class="mk-foot__links" aria-label="Enlaces de pie de página">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#web">Servicios</a></li>
-      <li><a href="#citas">Citas</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </div>
-</footer>
+  <!-- ============== FOOTER ============== -->
+  <footer class="mk-footer" role="contentinfo">
+    <div class="mk-wrap mk-foot">
+      <small>© <span id="y"></span> MozbyTec — León, Gto.</small>
+      <ul class="mk-foot__links" aria-label="Enlaces de pie de página">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#web">Servicios</a></li>
+        <li><a href="#citas">Citas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </footer>
 
-<!-- ============== WhatsApp flotante ============== -->
-<a id="mk-wa-float" class="mk-wa"
-   href="https://wa.me/524772521372"
-   target="_blank" rel="noopener"
-   aria-label="Abrir WhatsApp"
-   title="Escríbeme por WhatsApp"
-   data-wa-text="Hola, me interesa una página web.">
-  <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false">
-    <path fill="currentColor" d="M19.1 17.6c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 .1c-.2-.3-.9-1.2-.9-2s.6-.7.8-.9.2-.5 0-.8c-.1-.2-.7-1.7-.9-2s-.5-.5-.7-.5h-.6c-.2 0-.8.1-1.3.6s-1.3 1.3-1.3 3.1 1.3 3.6 1.5 3.8 2.6 4.1 6.3 5.6c2.4 1 3.3 1.1 4.5.9 1-.2 2.1-.9 2.4-1.8s.3-1.6.2-1.8-.3-.2-.7-.4zM16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8C11.6 28.4 13.7 29 16 29c7.2 0 13-5.8 13-13S23.2 3 16 3z"/>
-  </svg>
-</a>
+  <!-- ============== WhatsApp flotante ============== -->
+  <a id="mk-wa-float" class="mk-wa"
+     href="https://wa.me/524772521372"
+     target="_blank" rel="noopener"
+     aria-label="Abrir WhatsApp"
+     title="Escríbeme por WhatsApp"
+     data-wa-text="Hola, me interesa una página web.">
+    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M19.1 17.6c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 .1c-.2-.3-.9-1.2-.9-2s.6-.7.8-.9.2-.5 0-.8c-.1-.2-.7-1.7-.9-2s-.5-.5-.7-.5h-.6c-.2 0-.8.1-1.3.6s-1.3 1.3-1.3 3.1 1.3 3.6 1.5 3.8 2.6 4.1 6.3 5.6c2.4 1 3.3 1.1 4.5.9 1-.2 2.1-.9 2.4-1.8s.3-1.6.2-1.8-.3-.2-.7-.4zM16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8C11.6 28.4 13.7 29 16 29c7.2 0 13-5.8 13-13S23.2 3 16 3z"/>
+    </svg>
+  </a>
 
-<!-- ============== Scripts ============== -->
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<script src="script.js" defer></script>
-<!-- ===== Panel lateral estilo Netflix ===== -->
-<div id="mkPanelBackdrop" class="mk-panel__backdrop" aria-hidden="true"></div>
+  <!-- ============== Scripts (rutas relativas + cache-buster) ============== -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+    // Auto-resize Calendly (respetando tus alturas visuales)
+    (function autoResizeCalendly(){
+      const widget = document.querySelector('#citas .calendly-inline-widget');
+      if(!widget) return;
+      const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
+      const setH=(px)=>widget.style.height=clamp(px,560,1300)+'px';
+      const HEIGHTS={profile:780,datetime:980,scheduled:820};
+      setH(HEIGHTS.profile);
+      window.addEventListener('message',function(e){
+        try{ if(!(new URL(e.origin).hostname.endsWith('calendly.com'))) return; }catch(_){return;}
+        const d=e.data||{}, evt=d.event||d?.payload?.event;
+        if(evt==='calendly.frameHeight' && (d.height||d?.payload?.height)){ setH(d.height||d.payload.height); return; }
+        switch(evt){
+          case 'calendly.profile_page_viewed': setH(HEIGHTS.profile); break;
+          case 'calendly.date_and_time_selected': setH(HEIGHTS.datetime); break;
+          case 'calendly.event_scheduled': setH(HEIGHTS.scheduled); break;
+        }
+      },false);
+    })();
+  </script>
+  <script src="./script.js?v=2025-09-05d" defer></script>
 
-<aside id="mkPanel" class="mk-panel" role="dialog" aria-modal="true" aria-labelledby="mkPanelTitle" aria-hidden="true">
-
-</aside>
-
+  <!-- Panel lateral (placeholder) -->
+  <div id="mkPanelBackdrop" class="mk-panel__backdrop" aria-hidden="true"></div>
+  <aside id="mkPanel" class="mk-panel" role="dialog" aria-modal="true" aria-labelledby="mkPanelTitle" aria-hidden="true"></aside>
 </body>
 </html>
