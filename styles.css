@@ -434,3 +434,31 @@ img{max-width:100%;height:auto;display:block}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+/* --- Lock desktop look hasta 840px y elimina el brinco en móvil --- */
+
+/* 1) Mantén 2 columnas hasta 840px (en vez de 980) */
+@media (max-width: 980px){
+  .mk-cards{
+    grid-template-columns: repeat(2, 1fr);
+    transform: none;           /* sin salto */
+  }
+}
+
+/* 2) Cuando realmente sea móvil estrecho (<840px), ahí sí 1 columna */
+@media (max-width: 840px){
+  .mk-cards{
+    grid-template-columns: 1fr;
+    transform: none;           /* sin salto */
+  }
+}
+
+/* 3) Si en algún CSS quedó el translateY para móvil, neutralízalo siempre */
+.mk-cards { transform: none !important; }
+
+/* 4) Para que la franja negra y las tarjetas sigan viéndose igual */
+.mk-packages{ position:relative; }
+.mk-packages::before{
+  content:"";
+  position:absolute; inset:0 0 auto 0;
+  height:350px; background:#0b0b0b; z-index:-1;
+}
